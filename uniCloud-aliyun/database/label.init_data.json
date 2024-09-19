@@ -1,0 +1,22 @@
+[
+  {
+    "id": "2312421",
+    "type": "1",
+    "description": "前端"
+  },
+  {
+    "id": "3432412",
+    "type": "2",
+    "description": "后端"
+  },
+  {
+    "id": "312312",
+    "type": "3",
+    "description": "运维"
+  },
+  {
+    "id": "234233",
+    "type": "4",
+    "description": "小程序"
+  }
+]

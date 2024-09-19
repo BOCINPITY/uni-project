@@ -1,0 +1,56 @@
+// 在本文件中可配置云数据库初始化，数据格式见：https://uniapp.dcloud.io/uniCloud/hellodb?id=db-init
+
+// 编写完毕后对本文件点右键，可按配置规则创建表和添加数据
+
+{
+	"article": {
+		"data": [{
+			"id": "302042",
+			"titile": "SSR基本介绍以及API的使用",
+			"browse_count": 173,
+			"collection_count": 5,
+			"author": {
+				"id": "8010388",
+				"author_name": "WEB韩刚",
+				"avatar": "https://cdn.picui.cn/vip/2024/09/19/66ebc66f9b069.png",
+				"status": "normal"
+			},
+			"classify": "后端开发",
+			"thumbs_up_count": 5,
+			"create_time": "2024-09-19 14:40",
+			"content": ""
+		}]
+	},
+	"user": {
+		"data": [{
+			"id": "8010288",
+			"nickname": "WEB韩刚",
+			"email": "208023732@qq.com",
+			"avatar": "https://cdn.picui.cn/vip/2024/09/19/66ebc66f9b069.png",
+			"password": "qinjianO5177"
+		}]
+	},
+	"label": {
+		"data": [{
+				"id": "2312421",
+				"type": "1",
+				"description": "前端"
+			},
+			{
+				"id": "3432412",
+				"type": "2",
+				"description": "后端"
+			},
+			{
+				"id": "312312",
+				"type": "3",
+				"description": "运维"
+			},
+			{
+				"id": "234233",
+				"type": "4",
+				"description": "小程序"
+			}
+		]
+	}
+}
