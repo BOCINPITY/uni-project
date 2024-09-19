@@ -1,1 +1,1 @@
-<view class="home-container"><nav-bar u-i="70cbeb10-0" bind:__l="__l"></nav-bar><tab-bar wx:if="{{a}}" u-i="70cbeb10-1" bind:__l="__l" u-p="{{a}}"></tab-bar></view>
+<view class="home-container data-v-1cf27b2a"><nav-bar class="data-v-1cf27b2a" u-i="1cf27b2a-0" bind:__l="__l"></nav-bar><tab-bar wx:if="{{b}}" class="data-v-1cf27b2a" bindactiveIndexchange="{{a}}" u-i="1cf27b2a-1" bind:__l="__l" u-p="{{b}}"></tab-bar><article-list wx:if="{{d}}" bindactiveIndexchange="{{c}}" class="list-container data-v-1cf27b2a" u-i="1cf27b2a-2" bind:__l="__l" u-p="{{d}}"></article-list></view>

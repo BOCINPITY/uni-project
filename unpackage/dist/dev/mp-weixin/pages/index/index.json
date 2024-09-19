@@ -2,6 +2,7 @@
   "navigationStyle": "custom",
   "usingComponents": {
     "nav-bar": "../../components/NavBar/NavBar",
-    "tab-bar": "../../components/TabBar/TabBar"
+    "tab-bar": "../../components/TabBar/TabBar",
+    "article-list": "../../components/ArticleList/ArticleList"
   }
 }

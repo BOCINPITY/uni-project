@@ -3,7 +3,8 @@
 		<!-- 滚动区域 -->
 		<scroll-view scroll-x="true" class="tab-scroll">
 			<view class="tab-scroll-box">
-				<view class="tab-scroll-item" v-for="(item,index) in labelList" :key="index" :class="{active:activeIndex === index}" @click="handleTabItemClick(index)">
+				<view class="tab-scroll-item" v-for="(item,index) in labelList" :key="index"
+					:class="{active:activeIndex === index}" @click="handleTabItemClick(index)">
 					{{item.description}}
 				</view>
 			</view>
@@ -15,14 +16,20 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
-	const activeIndex = ref(0)
-	const props = defineProps(["labelList"])
+	import {
+		ref
+	} from 'vue';
+
+	const  props = defineProps({
+		activeIndex:Number,
+		labelList:Array
+	})
+	const emit = defineEmits(['activeIndexchange'])
 	const handleTabItemClick = (index) => {
-		activeIndex.value = index
+		emit('activeIndexchange',index)
 	}
 </script>
 
 <style lang="scss" scoped>
-@import "./css/TabBar.scss";
+	@import "./css/TabBar.scss";
 </style>

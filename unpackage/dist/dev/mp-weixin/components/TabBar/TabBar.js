@@ -10,11 +10,15 @@ if (!Math) {
 }
 const _sfc_main = {
   __name: "TabBar",
-  props: ["labelList"],
-  setup(__props) {
-    const activeIndex = common_vendor.ref(0);
+  props: {
+    activeIndex: Number,
+    labelList: Array
+  },
+  emits: ["activeIndexchange"],
+  setup(__props, { emit: __emit }) {
+    const emit = __emit;
     const handleTabItemClick = (index) => {
-      activeIndex.value = index;
+      emit("activeIndexchange", index);
     };
     return (_ctx, _cache) => {
       return {
@@ -22,7 +26,7 @@ const _sfc_main = {
           return {
             a: common_vendor.t(item.description),
             b: index,
-            c: activeIndex.value === index ? 1 : "",
+            c: __props.activeIndex === index ? 1 : "",
             d: common_vendor.o(($event) => handleTabItemClick(index), index)
           };
         }),

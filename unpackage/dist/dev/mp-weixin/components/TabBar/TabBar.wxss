@@ -30,7 +30,7 @@
   flex-wrap: nowarp;
   flex-direction: row;
   width: 100%;
-  border: 1px solid #c8c7cc;
+  border: 1px solid #F5F5F5;
   background-color: #f8f8f8;
   box-sizing: border-box;
 }
@@ -55,7 +55,7 @@
   font-size: 16px;
 }
 .tab .tab-scroll .tab-scroll-box .active.data-v-e632d448 {
-  color: #007aff;
+  color: #0077ff;
 }
 .tab .tab-icons.data-v-e632d448 {
   width: 90rpx;

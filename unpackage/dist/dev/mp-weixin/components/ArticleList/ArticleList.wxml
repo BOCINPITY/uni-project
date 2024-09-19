@@ -1,0 +1,1 @@
+<swiper class="data-v-6335dad8" bindchange="{{b}}" current="{{c}}"><swiper-item wx:for="{{a}}" wx:for-item="item" wx:key="b" class="data-v-6335dad8"><view class="swiper-item data-v-6335dad8">{{item.a}}</view></swiper-item></swiper>
