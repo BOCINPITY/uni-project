@@ -1,0 +1,39 @@
+.tab{
+	@include flex();
+	width: 100%;
+	border: 1px solid $uni-border-color;
+	background-color: $uni-bg-color-grey;
+	box-sizing: border-box;
+	.tab-scroll{
+		flex: 1;
+		box-sizing: border-box;
+		height: 90rpx;
+		.tab-scroll-box{
+			@include flex(flex-start);
+			height: 90rpx;
+			box-sizing: border-box;
+			.tab-scroll-item{
+				flex-shrink: 0;
+				padding: 0 20rpx;
+				color: $uni-text-color;
+				font-size: $uni-font-size-lg;
+			}
+			.active{
+				color: $uni-color-primary;
+			}
+		}
+	}
+	.tab-icons{
+		width: 90rpx;
+		position: relative;
+		@include flex(center);
+		&:after{
+			content: "";
+			background-color: $uni-text-color-grey;
+			position: absolute;
+			height: 32rpx;
+			left: 0;
+			width: 2rpx;
+		}
+	}
+}

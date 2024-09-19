@@ -1,0 +1,1 @@
+<view class="search-container"><view class="searche-header"><view style="{{'height:' + a}}"></view><uni-icons wx:if="{{c}}" bindclick="{{b}}" u-i="510333ea-0" bind:__l="__l" u-p="{{c}}"></uni-icons></view></view>

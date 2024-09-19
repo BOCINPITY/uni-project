@@ -17,6 +17,12 @@
 			"style": {
 				"navigationStyle": "custom"
 			}
+		},
+		{
+			"path": "pages/search/search",
+			"style": {
+				"navigationStyle": "custom"
+			}
 		}
 	],
 	"globalStyle": {
@@ -30,16 +36,15 @@
 		"color": "#000000",
 		"selectedColor": "#0077FF",
 		"backgroundColor": "#FFFFFF",
-		"list": [
-			{
+		"list": [{
 				"pagePath": "pages/index/index",
 				"iconPath": "static/img/home.png",
 				"selectedIconPath": "static/img/home_active.png",
 				"text": "首页"
 			},
 			{
-				"pagePath":"pages/start/start",
-				"iconPath":"static/img/start.png",
+				"pagePath": "pages/start/start",
+				"iconPath": "static/img/start.png",
 				"selectedIconPath": "static/img/start_active.png",
 				"text": "收藏"
 			},

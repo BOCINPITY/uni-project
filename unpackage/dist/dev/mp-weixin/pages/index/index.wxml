@@ -1,1 +1,1 @@
-<view class="home-container"><nav-bar u-i="70cbeb10-0" bind:__l="__l"></nav-bar><view class="">0</view><view class="">1</view><view class="">1</view><view class="">1</view><view class="">1</view><view class="">1</view><view class="">1</view><view class="">1</view></view>
+<view class="home-container"><nav-bar u-i="70cbeb10-0" bind:__l="__l"></nav-bar><tab-bar wx:if="{{a}}" u-i="70cbeb10-1" bind:__l="__l" u-p="{{a}}"></tab-bar></view>

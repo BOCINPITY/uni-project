@@ -9,30 +9,27 @@ if (!Math) {
   _easycom_uni_icons();
 }
 const _sfc_main = {
-  __name: "NavBar",
+  __name: "search",
   setup(__props) {
-    const { statusBarHeight } = common_vendor.index.getSystemInfoSync();
-    let barHeight = statusBarHeight * 2 || 20;
-    let marginRight = 0;
+    const {
+      statusBarHeight
+    } = common_vendor.index.getSystemInfoSync();
+    let barHeight = statusBarHeight * 2 || 0;
     const menuinfo = common_vendor.index.getMenuButtonBoundingClientRect();
     barHeight = menuinfo.top * 2;
-    marginRight = menuinfo.width * 2;
-    const handleSearch = () => {
-      common_vendor.index.navigateTo({
-        url: "/pages/search/search"
-      });
+    const handleBack = () => {
+      common_vendor.index.navigateBack();
     };
     return (_ctx, _cache) => {
       return {
         a: common_vendor.unref(barHeight) + "rpx",
-        b: common_vendor.p({
-          type: "search"
-        }),
-        c: common_vendor.unref(marginRight) + "rpx",
-        d: common_vendor.o(handleSearch),
-        e: common_vendor.unref(barHeight) + 80 + "rpx"
+        b: common_vendor.o(handleBack),
+        c: common_vendor.p({
+          type: "left",
+          color: "#FFFFFF"
+        })
       };
     };
   }
 };
-wx.createComponent(_sfc_main);
+wx.createPage(_sfc_main);
