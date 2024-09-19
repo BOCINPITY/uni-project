@@ -1,0 +1,27 @@
+.nav-bar{
+	.nav-bar-top{
+		position: absolute;
+		top: 0;
+		left: 0;
+		z-index: 999;
+		width: 100%;
+		background-color: $uni-bg-color;
+		padding: 0 30rpx 20rpx;
+		box-sizing: border-box;
+		.nav-bar-content{
+			@include flex(flex-start);
+			height: 60rpx;
+			background-color: $uni-bg-color-grey;
+			border-radius: $uni-border-radius-lg;
+			flex-grow: 1;
+			padding-left: 20rpx;
+			box-sizing: border-box;
+			.nav-bar-search-text{
+				font-size: 28rpx;
+				width: 100%;
+				margin-left: 20rpx;
+				color: $uni-text-color-grey;
+			}
+		}
+	}
+}

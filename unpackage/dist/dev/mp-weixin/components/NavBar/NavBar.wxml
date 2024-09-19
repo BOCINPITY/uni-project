@@ -1,0 +1,1 @@
+<view class="nav-bar"><view class="nav-bar-top"><view style="{{'height:' + a}}"></view><view class="nav-bar-content" style="{{'margin-right:' + c}}"><uni-icons wx:if="{{b}}" u-i="f70afcc0-0" bind:__l="__l" u-p="{{b}}"></uni-icons><view class="nav-bar-search-text"> 输入文章标题进行搜索 </view></view></view><view style="{{'height:' + d}}"></view></view>

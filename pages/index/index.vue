@@ -1,18 +1,19 @@
 <template>
-	<view>
-		<view class="container">
-			<text>left</text>
-			<text>middle</text>
-			<text>right</text>
+		<view class="home-container">
+			<NavBar></NavBar>
+			<view class="">0</view>
+			<view class="">1</view>
+			<view class="">1</view>
+			<view class="">1</view>
+			<view class="">1</view>
+			<view class="">1</view>
+			<view class="">1</view>
+			<view class="">1</view>
 		</view>
-	</view>
 </template>
 
 <script setup>
 </script>
 
-<style lang="scss" scoped>
-.container{
-	@include flex();
-}
+<style lang="scss">
 </style>
