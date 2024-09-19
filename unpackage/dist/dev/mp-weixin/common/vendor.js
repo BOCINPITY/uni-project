@@ -6813,6 +6813,7 @@ function stringify(styles) {
 const o$1 = (value, key) => vOn(value, key);
 const f$1 = (source, renderItem) => vFor(source, renderItem);
 const s$1 = (value) => stringifyStyle(value);
+const e$1 = (target, ...sources) => extend(target, ...sources);
 const n$1 = (value) => normalizeClass(value);
 const t$1 = (val) => toDisplayString(val);
 const p$1 = (props) => renderProps(props);
@@ -8000,7 +8001,7 @@ class v {
 function I(e2) {
   return e2 && "string" == typeof e2 ? JSON.parse(e2) : e2;
 }
-const S = true, b = "mp-weixin", A = I(define_process_env_UNI_SECURE_NETWORK_CONFIG_default), C = b, P = I('{\n    "address": [\n        "127.0.0.1",\n        "192.168.1.102",\n        "192.168.137.1",\n        "192.168.110.1",\n        "192.168.245.1",\n        "192.168.1.103"\n    ],\n    "debugPort": 9000,\n    "initialLaunchType": "remote",\n    "servePort": 7000,\n    "skipFiles": [\n        "<node_internals>/**",\n        "E:/HB/HBuilderX/plugins/unicloud/**/*.js"\n    ]\n}\n'), T = I('[{"provider":"aliyun","spaceName":"uniproject-store","spaceId":"mp-75798dce-c6c2-4435-b34b-795fade89b07","clientSecret":"4nSIkQpm04nSjJc2iVGojQ==","endpoint":"https://api.next.bspapp.com"}]') || [];
+const S = true, b = "mp-weixin", A = I(define_process_env_UNI_SECURE_NETWORK_CONFIG_default), C = b, P = I('{\n    "address": [\n        "127.0.0.1",\n        "192.168.1.102",\n        "192.168.137.1",\n        "192.168.110.1",\n        "192.168.245.1",\n        "192.168.1.103"\n    ],\n    "debugPort": 9000,\n    "initialLaunchType": "local",\n    "servePort": 7000,\n    "skipFiles": [\n        "<node_internals>/**",\n        "E:/HB/HBuilderX/plugins/unicloud/**/*.js"\n    ]\n}\n'), T = I('[{"provider":"aliyun","spaceName":"uniproject-store","spaceId":"mp-75798dce-c6c2-4435-b34b-795fade89b07","clientSecret":"4nSIkQpm04nSjJc2iVGojQ==","endpoint":"https://api.next.bspapp.com"}]') || [];
 let O = "";
 try {
   O = "__UNI__9D1FAFE";
@@ -10442,6 +10443,7 @@ var Vs = Js;
 exports.Vs = Vs;
 exports._export_sfc = _export_sfc;
 exports.createSSRApp = createSSRApp;
+exports.e = e$1;
 exports.f = f$1;
 exports.index = index;
 exports.n = n$1;

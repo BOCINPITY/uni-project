@@ -1,9 +1,9 @@
 <!-- 文章列表组件 -->
 <template>
-	<swiper @change="swiperChange" :current="activeIndex">
+	<swiper class="swiper-container" @change="swiperChange" :current="activeIndex">
 		<swiper-item v-for="item in labelList" :key="item._id">
-			<view class="swiper-item">
-				{{item.description}}
+			<view class="swiper-item uni-bg-red">
+				<ArticleItem ></ArticleItem>
 			</view>
 		</swiper-item>
 	</swiper>
@@ -21,7 +21,12 @@
 </script>
 
 <style lang="scss" scoped>
-.swiper-item{
-	color: $uni-text-color;
-}
+	.swiper-container{
+		height: 100%;
+		.swiper-item{
+			height: 100%;
+			overflow: hidden;
+		}
+	}
+
 </style>

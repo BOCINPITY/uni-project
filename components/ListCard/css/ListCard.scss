@@ -1,0 +1,58 @@
+.list-card{
+	@include flex();
+	border: 1px solid $uni-border-color;
+	border-radius: 10rpx;
+	padding: 20rpx;
+	margin: 20rpx;
+	box-shadow: 0 0 10rpx 2rpx rgba(0,0,.1);
+	.list-card-image{
+		width: 120rpx;
+		height: 120rpx;
+		border-radius: 10rpx;
+		overflow: hidden;
+		flex-shrink: 0;
+		image{
+			height: 100%;
+			width: 100%;
+		}
+	}
+	.list-card-content{
+		@include flex(space-between,column);
+		width: 100%;
+		position: relative;
+		.list-card-title{
+			width: 100%;
+			color: $uni-color-title;
+			padding-left: 20rpx;
+			font-size: $uni-font-size-lg;
+			@include flex(flex-start);
+			align-items: flex-start;
+		}
+		.list-card-start{
+			position: absolute;
+			right: 0;
+			top: 0;
+		}
+		.list-card-tag{
+			position: absolute;
+			border: 1px solid $uni-border-color;
+			border-radius: $uni-border-radius-lg;
+			font-size: $uni-font-size-sm;
+			padding: 5rpx;
+			color: $uni-color-primary;
+			left: 20rpx;
+			bottom: 0;
+		}
+		.list-card-description{
+			font-size: $uni-font-size-base;
+			color: $uni-color-paragraph;
+			padding: 20rpx;
+			text-indent: 2em;
+		}
+		.list-card-views{
+			@include flex(flex-end);
+			font-size: $uni-font-size-sm;
+			width: 100%;
+		}
+	}
+}

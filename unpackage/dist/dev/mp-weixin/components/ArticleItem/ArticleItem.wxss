@@ -23,10 +23,11 @@
 /* 垂直间距 */
 /* 透明度 */
 /* 文章场景相关 */
-.swiper-container.data-v-6335dad8 {
+.article-list-container.data-v-46d4f33b {
   height: 100%;
 }
-.swiper-container .swiper-item.data-v-6335dad8 {
+.article-list-container .article-list-scroll.data-v-46d4f33b {
   height: 100%;
   overflow: hidden;
+  box-sizing: border-box;
 }

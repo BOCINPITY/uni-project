@@ -1,6 +1,6 @@
 {
   "component": true,
   "usingComponents": {
-    "article-item": "../ArticleItem/ArticleItem"
+    "list-card": "../ListCard/ListCard"
   }
 }

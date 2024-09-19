@@ -1,5 +1,13 @@
 "use strict";
 const common_vendor = require("../../common/vendor.js");
+if (!Array) {
+  const _easycom_ArticleItem2 = common_vendor.resolveComponent("ArticleItem");
+  _easycom_ArticleItem2();
+}
+const _easycom_ArticleItem = () => "../ArticleItem/ArticleItem.js";
+if (!Math) {
+  _easycom_ArticleItem();
+}
 const _sfc_main = {
   __name: "ArticleList",
   props: {
@@ -16,7 +24,7 @@ const _sfc_main = {
       return {
         a: common_vendor.f(__props.labelList, (item, k0, i0) => {
           return {
-            a: common_vendor.t(item.description),
+            a: "6335dad8-0-" + i0,
             b: item._id
           };
         }),
