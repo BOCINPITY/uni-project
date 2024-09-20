@@ -17,7 +17,7 @@ const _sfc_main = {
   setup(__props) {
     const tabBar = common_vendor.ref([]);
     const activeIndex = common_vendor.ref(0);
-    const currentTab = common_vendor.reactive({ key: "0", value: "全部" });
+    const classify = common_vendor.ref("全部");
     common_vendor.onBeforeMount(async () => {
       const {
         result
@@ -29,8 +29,7 @@ const _sfc_main = {
     const indexChange = (index) => {
       activeIndex.value = index;
       const res = tabBar.value.find((item) => index === +item.type);
-      currentTab.key = res.type;
-      currentTab.value = res.description;
+      classify.value = res.description;
     };
     return (_ctx, _cache) => {
       return {
@@ -41,7 +40,7 @@ const _sfc_main = {
         }),
         c: common_vendor.o(indexChange),
         d: common_vendor.p({
-          currentTab,
+          classify: classify.value,
           activeIndex: activeIndex.value,
           labelList: tabBar.value
         })

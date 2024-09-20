@@ -1,25 +1,25 @@
 'use strict';
 const db = uniCloud.database()
+const ALL = "全部"
 exports.main = async (event, context) => {
-	const categoryValue = event.value
-	const categoryKey = event.key
+	const {pageSize = 10, current = 1, classify = ALL} = event
 	const collection = db.collection('article')
-	let res = null
-	if (categoryValue && +categoryKey) {
-		res = await collection.where({
-			classify: categoryValue
-		}).get()
-	} else {
-		res = await collection.aggregate().project({
-			content: 0
-		}).end()
+	let matchObj = {classify: classify}
+	if (classify === ALL) {
+		matchObj = {}
 	}
-
-
+	console.log(matchObj,pageSize,current)
+	const {data} = await collection.aggregate().match(matchObj).project({
+		content: 0
+	}).skip(pageSize * (current - 1)).limit(pageSize).end()
+	const amount = await collection.where(matchObj).count()
 	//返回数据给客户端
 	return {
 		code: 200,
 		msg: "success",
-		res: res.data
+		res: {
+			list: data,
+			total: amount.total
+		}
 	}
 };

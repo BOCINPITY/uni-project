@@ -1,8 +1,9 @@
 <template>
 	<view class="article-list-container">
-		<scroll-view scroll-y="true" class="article-list-scroll">
+		<scroll-view scroll-y="true" class="article-list-scroll" @scrolltolower="loadMore">
 			<view class="article-list-content">
 				<ListCard :item="item" v-for="(item,index) in aticleList" :key="index"></ListCard>
+				<uni-load-more :status="loadStatus"></uni-load-more>
 			</view>
 		</scroll-view>
 	</view>
@@ -17,14 +18,18 @@
 		aticleList:{
 			type:Array,
 			default:() => []
-		}
+		},
+		loadStatus:String,
 	})
+	const emits = defineEmits(["loadMore"])
+	const loadMore = () => {
+		emits("loadMore")
+	}
 </script>
 
 <style lang="scss" scoped>
 	.article-list-container {
 		height: 100%;
-
 		.article-list-scroll {
 			height: 100%;
 			overflow: hidden;
