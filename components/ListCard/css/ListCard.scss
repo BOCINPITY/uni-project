@@ -1,10 +1,10 @@
 .list-card{
 	@include flex();
-	border: 1px solid $uni-border-color;
-	border-radius: 10rpx;
+	border-radius: $uni-border-radius-base;
 	padding: 20rpx;
 	margin: 20rpx;
-	box-shadow: 0 0 10rpx 2rpx rgba(0,0,.1);
+	box-shadow: 0 0 5rpx 2rpx rgba(0, 0, 0, 0.3);
+	position: relative;
 	.list-card-image{
 		width: 120rpx;
 		height: 120rpx;
@@ -16,11 +16,29 @@
 			width: 100%;
 		}
 	}
+	.list-card-start{
+		position: absolute;
+		right: 5%;
+		top: 5%;
+	}
+	.list-card-description{
+		font-size: $uni-font-size-base;
+		color: $uni-color-paragraph;
+		margin: 20rpx;
+		text-indent: 2em;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		line-height: 1.2;
+		display: -webkit-box;
+		-webkit-line-clamp: 3;
+		-webkit-box-orient: vertical;
+	}
 	.list-card-content{
 		@include flex(space-between,column);
 		width: 100%;
 		position: relative;
 		.list-card-title{
+			font-weight: 800;
 			width: 100%;
 			color: $uni-color-title;
 			padding-left: 20rpx;
@@ -28,31 +46,68 @@
 			@include flex(flex-start);
 			align-items: flex-start;
 		}
-		.list-card-start{
-			position: absolute;
-			right: 0;
-			top: 0;
-		}
+
 		.list-card-tag{
-			position: absolute;
-			border: 1px solid $uni-border-color;
+			border: 1px solid $uni-color-primary;
 			border-radius: $uni-border-radius-lg;
 			font-size: $uni-font-size-sm;
 			padding: 5rpx;
 			color: $uni-color-primary;
-			left: 20rpx;
-			bottom: 0;
+			align-self: flex-start;
+			margin-left: 20rpx;
 		}
-		.list-card-description{
-			font-size: $uni-font-size-base;
-			color: $uni-color-paragraph;
-			padding: 20rpx;
-			text-indent: 2em;
-		}
+
 		.list-card-views{
 			@include flex(flex-end);
 			font-size: $uni-font-size-sm;
+			align-self: flex-end
+		}
+	}
+}
+.mutiple{
+	@include flex(space-between,column);
+	.images{
+		width: 100%;
+		@include flex(space-around);
+		image{
+			width: 210rpx;
+		}
+	}
+	.list-card-description{
+		-webkit-line-clamp: 2;
+	}
+	.list-card-title{
+		font-weight: 800;
+		align-self: flex-start;
+		margin-left: 20rpx;
+	}
+	.list-card-content{
+		flex-direction: row;
+		margin-top: 20rpx;
+		.list-card-tag{
+			margin-left: 10rpx;
+		}
+	}
+}
+.cover{
+	flex-direction: column;
+	.images{
+		width: 100%;
+		image{
 			width: 100%;
+			height: 200rpx;
+		}
+	}
+	.list-card-title{
+		font-weight: 800;
+		align-self: flex-start;
+		margin-left: 20rpx;
+	}
+	.list-card-content{
+		flex-direction: row;
+		margin-top: 20rpx;
+		.list-card-tag{
+			margin-left: 10rpx;
 		}
 	}
 }

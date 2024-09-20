@@ -20,7 +20,12 @@ const _sfc_main = {
       return common_vendor.e({
         a: __props.item.mode === "base"
       }, __props.item.mode === "base" ? {
-        b: __props.item.url[0],
+        b: common_vendor.f(__props.item.url, (it, index, i0) => {
+          return {
+            a: it,
+            b: index
+          };
+        }),
         c: common_vendor.t(__props.item.meta.title),
         d: common_vendor.t(__props.item.meta.description),
         e: common_vendor.t(__props.item.tag),
@@ -29,6 +34,22 @@ const _sfc_main = {
           size: "20"
         }),
         g: common_vendor.t(__props.item.views)
+      } : {}, {
+        h: __props.item.mode === "mutiple"
+      }, __props.item.mode === "mutiple" ? {
+        i: common_vendor.t(__props.item.meta.title),
+        j: common_vendor.f(__props.item.url, (it, index, i0) => {
+          return {
+            a: it,
+            b: index
+          };
+        }),
+        k: common_vendor.t(__props.item.tag),
+        l: common_vendor.p({
+          type: "eye",
+          size: "20"
+        }),
+        m: common_vendor.t(__props.item.views)
       } : {});
     };
   }

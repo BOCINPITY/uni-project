@@ -47,16 +47,17 @@ const _sfc_main = {
       },
       {
         name: "www",
-        mode: "cover",
+        mode: "mutiple",
         views: 1212,
+        tag: "人生杂谈",
         meta: {
-          title: "cover测试",
-          description: "这是一段描述文字"
+          title: "人生是旷野",
+          description: "人生是旷野，而非轨道。在这片广袤的旷野之上，没有既定的路线，没有唯一的方向。你可以自由地奔跑、漫步、探索，去追寻心中那一抹独特的风景。这里，有连绵起伏的山峦等待你去攀登，挑战自我的高度；有奔腾不息的河流呼唤你去跨越，感受生命的力量；有静谧幽深的森林诱使你去深入，发现未知的奥秘。每一处角落都可能隐藏着惊喜，每一个选择都可能开启一段全新的旅程。"
         },
         url: [
-          "https://cdn.picui.cn/vip/2024/09/19/66ec21fe14f6e.jpg",
-          "https://cdn.picui.cn/vip/2024/09/19/66ec220ca28b8.jpg",
-          "https://cdn.picui.cn/vip/2024/09/19/66ec220ca4a95.jpg"
+          "https://cdn.picui.cn/vip/2024/09/20/66ece1dee5898.jpg",
+          "https://cdn.picui.cn/vip/2024/09/20/66ece20883aa0.jpg",
+          "https://cdn.picui.cn/vip/2024/09/20/66ece1df338b3.jpg"
         ]
       }
     ]);

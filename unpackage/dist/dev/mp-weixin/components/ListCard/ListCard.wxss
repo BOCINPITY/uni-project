@@ -29,11 +29,11 @@
   justify-content: space-between;
   flex-wrap: nowarp;
   flex-direction: row;
-  border: 1px solid #F5F5F5;
-  border-radius: 10rpx;
+  border-radius: 8px;
   padding: 20rpx;
   margin: 20rpx;
-  box-shadow: 0 0 10rpx 2rpx black;
+  box-shadow: 0 0 10rpx 2rpx rgba(0, 119, 255, 0.3);
+  position: relative;
 }
 .list-card .list-card-image.data-v-37ca02cc {
   width: 120rpx;
@@ -46,6 +46,11 @@
   height: 100%;
   width: 100%;
 }
+.list-card .list-card-start.data-v-37ca02cc {
+  position: absolute;
+  right: 5%;
+  top: 5%;
+}
 .list-card .list-card-content.data-v-37ca02cc {
   display: flex;
   align-items: center;
@@ -56,6 +61,7 @@
   position: relative;
 }
 .list-card .list-card-content .list-card-title.data-v-37ca02cc {
+  font-weight: 800;
   width: 100%;
   color: #2C405A;
   padding-left: 20rpx;
@@ -67,26 +73,26 @@
   flex-direction: row;
   align-items: flex-start;
 }
-.list-card .list-card-content .list-card-start.data-v-37ca02cc {
-  position: absolute;
-  right: 0;
-  top: 0;
-}
 .list-card .list-card-content .list-card-tag.data-v-37ca02cc {
-  position: absolute;
-  border: 1px solid #F5F5F5;
+  border: 1px solid #0077ff;
   border-radius: 30px;
   font-size: 12px;
   padding: 5rpx;
   color: #0077ff;
-  left: 20rpx;
-  bottom: 0;
+  align-self: flex-start;
+  margin-left: 20rpx;
 }
 .list-card .list-card-content .list-card-description.data-v-37ca02cc {
   font-size: 14px;
   color: #3F536E;
-  padding: 20rpx;
+  margin: 20rpx;
   text-indent: 2em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.2;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
 }
 .list-card .list-card-content .list-card-views.data-v-37ca02cc {
   display: flex;
@@ -95,5 +101,33 @@
   flex-wrap: nowarp;
   flex-direction: row;
   font-size: 12px;
+  align-self: flex-end;
+}
+.mutiple.data-v-37ca02cc {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: nowarp;
+  flex-direction: column;
+}
+.mutiple .images.data-v-37ca02cc {
   width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: nowarp;
+  flex-direction: row;
+}
+.mutiple .images image.data-v-37ca02cc {
+  width: 210rpx;
+}
+.mutiple .list-card-title.data-v-37ca02cc {
+  font-weight: 800;
+  align-self: flex-start;
+  margin-bottom: 20rpx;
+  margin-left: 20rpx;
+}
+.mutiple .list-card-content.data-v-37ca02cc {
+  flex-direction: row;
+  margin-top: 20rpx;
 }

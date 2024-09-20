@@ -1,8 +1,9 @@
 <template>
 	<view class="home-container">
-		<NavBar ></NavBar>
+		<NavBar></NavBar>
 		<TabBar :activeIndex="activeIndex" :labelList="tabBar" @activeIndexchange="indexChange"></TabBar>
-		<ArticleList :activeIndex="activeIndex" @activeIndexchange="indexChange" :labelList="tabBar" class="list-container"></ArticleList>
+		<ArticleList :activeIndex="activeIndex" @activeIndexchange="indexChange" :labelList="tabBar"
+			class="list-container"></ArticleList>
 	</view>
 </template>
 
@@ -13,9 +14,11 @@
 	} from 'vue';
 	const tabBar = ref([])
 	const activeIndex = ref(0)
-	onBeforeMount(async() => {
-		const {result} =  await uniCloud.callFunction({
-			name:"label_get_list"
+	onBeforeMount(async () => {
+		const {
+			result
+		} = await uniCloud.callFunction({
+			name: "label_get_list"
 		})
 		tabBar.value = result.res
 	})
@@ -25,18 +28,14 @@
 </script>
 
 <style lang="scss" scoped>
-	page{
-		display: flex;
-		height: 100%;
-	}
-	.home-container{
-		flex: 1;
+	.home-container {
+		height: 100vh;
 		overflow: hidden;
 		box-sizing: border-box;
-		@include flex(flex-start,column);
+		@include flex(flex-start, column);
 		align-items: inherit;
 	}
-	.list-container{
+	.list-container {
 		flex: 1;
 		box-sizing: border-box;
 	}

@@ -3,9 +3,10 @@
 	<swiper class="swiper-container" @change="swiperChange" :current="activeIndex">
 		<swiper-item v-for="item in labelList" :key="item._id">
 			<view class="swiper-item uni-bg-red">
-				<ArticleItem ></ArticleItem>
+				<ArticleItem></ArticleItem>
 			</view>
 		</swiper-item>
+
 	</swiper>
 </template>
 
