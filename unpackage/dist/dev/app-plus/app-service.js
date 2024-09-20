@@ -394,7 +394,7 @@ if (uni.restoreGlobal) {
   function I(e2) {
     return e2 && "string" == typeof e2 ? JSON.parse(e2) : e2;
   }
-  const S = true, b = "app", A = I(define_process_env_UNI_SECURE_NETWORK_CONFIG_default), C = b, P = I('{\n    "address": [\n        "127.0.0.1",\n        "192.168.1.106",\n        "192.168.137.1",\n        "192.168.110.1",\n        "192.168.245.1",\n        "192.168.1.105"\n    ],\n    "debugPort": 9001,\n    "initialLaunchType": "local",\n    "servePort": 7001,\n    "skipFiles": [\n        "<node_internals>/**",\n        "E:/HB/HBuilderX/plugins/unicloud/**/*.js"\n    ]\n}\n'), T = I('[{"provider":"aliyun","spaceName":"uniproject-store","spaceId":"mp-75798dce-c6c2-4435-b34b-795fade89b07","clientSecret":"4nSIkQpm04nSjJc2iVGojQ==","endpoint":"https://api.next.bspapp.com"}]') || [];
+  const S = true, b = "app", A = I(define_process_env_UNI_SECURE_NETWORK_CONFIG_default), C = b, P = I('{\n    "address": [\n        "127.0.0.1",\n        "192.168.1.106",\n        "192.168.137.1",\n        "192.168.110.1",\n        "192.168.245.1",\n        "192.168.1.105"\n    ],\n    "debugPort": 9002,\n    "initialLaunchType": "local",\n    "servePort": 7002,\n    "skipFiles": [\n        "<node_internals>/**",\n        "E:/HB/HBuilderX/plugins/unicloud/**/*.js"\n    ]\n}\n'), T = I('[{"provider":"aliyun","spaceName":"uniproject-store","spaceId":"mp-75798dce-c6c2-4435-b34b-795fade89b07","clientSecret":"4nSIkQpm04nSjJc2iVGojQ==","endpoint":"https://api.next.bspapp.com"}]') || [];
   let O = "";
   try {
     O = "__UNI__9D1FAFE";
@@ -3700,32 +3700,23 @@ ${i3}
               key: 0,
               class: "list-card"
             }, [
-              (vue.openBlock(true), vue.createElementBlock(
-                vue.Fragment,
-                null,
-                vue.renderList(__props.item.url, (it2, index) => {
-                  return vue.openBlock(), vue.createElementBlock("image", {
-                    class: "list-card-image",
-                    src: it2,
-                    key: index,
-                    mode: "aspectFill"
-                  }, null, 8, ["src"]);
-                }),
-                128
-                /* KEYED_FRAGMENT */
-              )),
+              vue.createElementVNode("image", {
+                class: "list-card-image",
+                src: __props.item.cover[0] ? __props.item.cover[0] : "/static/logo.png",
+                mode: "aspectFill"
+              }, null, 8, ["src"]),
               vue.createElementVNode("view", { class: "list-card-content" }, [
                 vue.createElementVNode(
                   "view",
                   { class: "list-card-title" },
-                  vue.toDisplayString(__props.item.meta.title),
+                  vue.toDisplayString(__props.item.title),
                   1
                   /* TEXT */
                 ),
                 vue.createElementVNode(
                   "view",
                   { class: "list-card-description" },
-                  vue.toDisplayString(__props.item.meta.description),
+                  vue.toDisplayString(__props.item.description),
                   1
                   /* TEXT */
                 ),
@@ -3738,11 +3729,24 @@ ${i3}
                 ),
                 vue.createElementVNode("view", { class: "list-card-views" }, [
                   vue.createVNode(_component_uni_icons, {
+                    type: "calendar",
+                    size: "20",
+                    color: "#0077FF"
+                  }),
+                  vue.createElementVNode(
+                    "view",
+                    { class: "publish_time" },
+                    "发布时间：" + vue.toDisplayString(__props.item.create_time),
+                    1
+                    /* TEXT */
+                  ),
+                  vue.createVNode(_component_uni_icons, {
                     type: "eye",
-                    size: "20"
+                    size: "20",
+                    color: "#0077FF"
                   }),
                   vue.createTextVNode(
-                    " " + vue.toDisplayString(__props.item.views) + "浏览 ",
+                    " " + vue.toDisplayString(__props.item.browse_count) + "浏览 ",
                     1
                     /* TEXT */
                   )
@@ -3758,14 +3762,14 @@ ${i3}
               vue.createElementVNode(
                 "view",
                 { class: "list-card-title" },
-                vue.toDisplayString(__props.item.meta.title),
+                vue.toDisplayString(__props.item.title),
                 1
                 /* TEXT */
               ),
               vue.createElementVNode(
                 "view",
                 { class: "list-card-description" },
-                vue.toDisplayString(__props.item.meta.description),
+                vue.toDisplayString(__props.item.description),
                 1
                 /* TEXT */
               ),
@@ -3773,7 +3777,7 @@ ${i3}
                 (vue.openBlock(true), vue.createElementBlock(
                   vue.Fragment,
                   null,
-                  vue.renderList(__props.item.url, (it2, index) => {
+                  vue.renderList(__props.item.cover, (it2, index) => {
                     return vue.openBlock(), vue.createElementBlock("image", {
                       class: "list-card-image",
                       src: it2,
@@ -3795,11 +3799,24 @@ ${i3}
                 ),
                 vue.createElementVNode("view", { class: "list-card-views" }, [
                   vue.createVNode(_component_uni_icons, {
+                    type: "calendar",
+                    size: "20",
+                    color: "#0077FF"
+                  }),
+                  vue.createElementVNode(
+                    "view",
+                    { class: "publish_time" },
+                    "发布时间：" + vue.toDisplayString(__props.item.create_time),
+                    1
+                    /* TEXT */
+                  ),
+                  vue.createVNode(_component_uni_icons, {
                     type: "eye",
-                    size: "20"
+                    size: "20",
+                    color: "#0077FF"
                   }),
                   vue.createTextVNode(
-                    " " + vue.toDisplayString(__props.item.views) + "浏览 ",
+                    " " + vue.toDisplayString(__props.item.browse_count) + "浏览 ",
                     1
                     /* TEXT */
                   )
@@ -3808,7 +3825,6 @@ ${i3}
               vue.createVNode(_component_Start, { class: "list-card-start" })
             ])) : vue.createCommentVNode("v-if", true),
             vue.createCommentVNode(" 大图卡片 "),
-            vue.createCommentVNode(" 多图卡片 "),
             __props.item.mode === "cover" ? (vue.openBlock(), vue.createElementBlock("view", {
               key: 2,
               class: "list-card cover"
@@ -3816,26 +3832,17 @@ ${i3}
               vue.createElementVNode(
                 "view",
                 { class: "list-card-title" },
-                vue.toDisplayString(__props.item.meta.title),
+                vue.toDisplayString(__props.item.title),
                 1
                 /* TEXT */
               ),
               vue.createVNode(_component_Start, { class: "list-card-start" }),
               vue.createElementVNode("view", { class: "images" }, [
-                (vue.openBlock(true), vue.createElementBlock(
-                  vue.Fragment,
-                  null,
-                  vue.renderList(__props.item.url, (it2, index) => {
-                    return vue.openBlock(), vue.createElementBlock("image", {
-                      class: "list-card-image",
-                      src: it2,
-                      key: index,
-                      mode: "aspectFill"
-                    }, null, 8, ["src"]);
-                  }),
-                  128
-                  /* KEYED_FRAGMENT */
-                ))
+                vue.createElementVNode("image", {
+                  class: "list-card-image",
+                  src: __props.item.cover[0] ? __props.item.cover[0] : "/static/logo.png",
+                  mode: "aspectFill"
+                }, null, 8, ["src"])
               ]),
               vue.createElementVNode("view", { class: "list-card-content" }, [
                 vue.createElementVNode(
@@ -3847,11 +3854,24 @@ ${i3}
                 ),
                 vue.createElementVNode("view", { class: "list-card-views" }, [
                   vue.createVNode(_component_uni_icons, {
+                    type: "calendar",
+                    size: "20",
+                    color: "#0077FF"
+                  }),
+                  vue.createElementVNode(
+                    "view",
+                    { class: "publish_time" },
+                    "发布时间：" + vue.toDisplayString(__props.item.create_time),
+                    1
+                    /* TEXT */
+                  ),
+                  vue.createVNode(_component_uni_icons, {
                     type: "eye",
-                    size: "20"
+                    size: "20",
+                    color: "#0077FF"
                   }),
                   vue.createTextVNode(
-                    " " + vue.toDisplayString(__props.item.views) + "浏览 ",
+                    " " + vue.toDisplayString(__props.item.browse_count) + "浏览 ",
                     1
                     /* TEXT */
                   )
@@ -3868,83 +3888,13 @@ ${i3}
   const __easycom_0$1 = /* @__PURE__ */ _export_sfc(_sfc_main$7, [["__scopeId", "data-v-37ca02cc"], ["__file", "E:/uniappP/uniproject/components/ListCard/ListCard.vue"]]);
   const _sfc_main$6 = {
     __name: "ArticleItem",
+    props: {
+      aticleList: {
+        type: Array,
+        default: () => []
+      }
+    },
     setup(__props) {
-      const itemList = vue.ref([
-        {
-          name: "xxx",
-          mode: "base",
-          views: 13213,
-          tag: "日漫",
-          meta: {
-            title: "火影忍者",
-            description: "《火影忍者》十多年前一只拥有巨大威力的妖兽“九尾妖狐”袭击了木叶忍者村，当时的第四代火影拼尽全力，以自己的生命为代价将“九尾妖狐”封印在了刚出生的鸣人身上。"
-          },
-          url: ["https://cdn.picui.cn/vip/2024/09/19/66ec21fe14f6e.jpg"]
-        },
-        {
-          name: "ddd",
-          mode: "base",
-          views: 13213,
-          tag: "东京食尸鬼",
-          meta: {
-            title: "東京喰種",
-            description: "《東京喰種》是石田翠的出道作，是將刊載於《Miracle Jump》No.2的原單篇作品重新架構與創作的作品。以現代日本東京為舞台，並以人類姿態的吃人怪人「喰種」為主題的黑暗奇幻漫畫作品。 原著書名中的「喰種」，意為人型食屍鬼。"
-          },
-          url: ["https://cdn.picui.cn/vip/2024/09/19/66ec220ca4a95.jpg"]
-        },
-        {
-          name: "qqq",
-          mode: "base",
-          views: 1112,
-          tag: "游戏",
-          meta: {
-            title: "Minecraft",
-            description: "Minecraft（《我的世界》）是由Mojang Studios开发的一款3D沙盒电子游戏。玩家可在游戏中无拘无束地在3个维度内与由方块和实体构成的世界互动。多种玩法可供玩家选择，带来无限可能。"
-          },
-          url: ["https://cdn.picui.cn/vip/2024/09/19/66ec220ca28b8.jpg"]
-        },
-        {
-          name: "www",
-          mode: "mutiple",
-          views: 1212,
-          tag: "人生杂谈",
-          meta: {
-            title: "人生是旷野",
-            description: "人生是旷野，而非轨道。在这片广袤的旷野之上，没有既定的路线，没有唯一的方向。你可以自由地奔跑、漫步、探索，去追寻心中那一抹独特的风景。这里，有连绵起伏的山峦等待你去攀登，挑战自我的高度；有奔腾不息的河流呼唤你去跨越，感受生命的力量；有静谧幽深的森林诱使你去深入，发现未知的奥秘。每一处角落都可能隐藏着惊喜，每一个选择都可能开启一段全新的旅程。"
-          },
-          url: [
-            "https://cdn.picui.cn/vip/2024/09/20/66ece1dee5898.jpg",
-            "https://cdn.picui.cn/vip/2024/09/20/66ece20883aa0.jpg",
-            "https://cdn.picui.cn/vip/2024/09/20/66ece1df338b3.jpg"
-          ]
-        },
-        {
-          name: "qqq",
-          mode: "cover",
-          views: 1112,
-          tag: "名胜古迹",
-          meta: {
-            title: "江汉关",
-            description: "江汉关大楼（Hankow Customs House），位于湖北省武汉市汉口沿江大道与江汉路交会处，由英资思九生洋行设计，上海魏清记营造厂承建，民国十一年（1922年）动工，民国十三年（1924年）落成，占地面积1499平方米，建筑面积4009平方米，是中国现存最早的三座海关大楼之一。"
-          },
-          url: ["https://cdn.picui.cn/vip/2024/09/20/66ecf9393f6d8.jpg"]
-        },
-        {
-          name: "www",
-          mode: "mutiple",
-          views: 1212,
-          tag: "人生杂谈",
-          meta: {
-            title: "生日记录",
-            description: "你不必随波逐流，不必按照他人的期待生活。你有权选择自己的道路，去追逐那属于自己的星辰大海。在这里，失败不是终点，而是新的起点；挫折不是阻碍，而是成长的契机。"
-          },
-          url: [
-            "https://cdn.picui.cn/vip/2024/09/20/66ece20883aa0.jpg",
-            "https://cdn.picui.cn/vip/2024/09/20/66ecf9c53a39b.png",
-            "https://cdn.picui.cn/vip/2024/09/20/66ecf9ee93fcf.png"
-          ]
-        }
-      ]);
       return (_ctx, _cache) => {
         const _component_ListCard = resolveEasycom(vue.resolveDynamicComponent("ListCard"), __easycom_0$1);
         return vue.openBlock(), vue.createElementBlock("view", { class: "article-list-container" }, [
@@ -3956,7 +3906,7 @@ ${i3}
               (vue.openBlock(true), vue.createElementBlock(
                 vue.Fragment,
                 null,
-                vue.renderList(itemList.value, (item, index) => {
+                vue.renderList(__props.aticleList, (item, index) => {
                   return vue.openBlock(), vue.createBlock(_component_ListCard, {
                     item,
                     key: index
@@ -3976,14 +3926,40 @@ ${i3}
     __name: "ArticleList",
     props: {
       activeIndex: Number,
-      labelList: Array
+      labelList: Array,
+      currentTab: Object
     },
     emits: ["activeIndexchange"],
     setup(__props, { emit: __emit }) {
+      const props = __props;
+      const aticleList = vue.ref([]);
+      const _showAticleList = vue.ref([]);
       const emit = __emit;
-      const swiperChange = ({ detail }) => {
+      const swiperChange = async ({
+        detail
+      }) => {
         emit("activeIndexchange", detail.current);
       };
+      vue.watch(() => props.currentTab.value, (newValue, oldValue) => {
+        _showAticleList.value = [];
+        aticleList.value.forEach((item) => {
+          if (item.classify === newValue) {
+            _showAticleList.value.push(item);
+          }
+        });
+      });
+      vue.onBeforeMount(async () => {
+        uni.showToast({
+          icon: "loading"
+        });
+        const {
+          result
+        } = await Vs.callFunction({
+          name: "article_get_list"
+        });
+        uni.hideToast();
+        aticleList.value = result.res;
+      });
       return (_ctx, _cache) => {
         const _component_ArticleItem = resolveEasycom(vue.resolveDynamicComponent("ArticleItem"), __easycom_0);
         return vue.openBlock(), vue.createElementBlock("swiper", {
@@ -3998,8 +3974,10 @@ ${i3}
               return vue.openBlock(), vue.createElementBlock("swiper-item", {
                 key: item._id
               }, [
-                vue.createElementVNode("view", { class: "swiper-item uni-bg-red" }, [
-                  vue.createVNode(_component_ArticleItem)
+                vue.createElementVNode("view", { class: "swiper-item" }, [
+                  vue.createVNode(_component_ArticleItem, {
+                    aticleList: __props.currentTab.value === "全部" ? aticleList.value : _showAticleList.value
+                  }, null, 8, ["aticleList"])
                 ])
               ]);
             }),
@@ -4016,6 +3994,7 @@ ${i3}
     setup(__props) {
       const tabBar2 = vue.ref([]);
       const activeIndex = vue.ref(0);
+      const currentTab = vue.reactive({ key: "0", value: "全部" });
       vue.onBeforeMount(async () => {
         const {
           result
@@ -4026,6 +4005,9 @@ ${i3}
       });
       const indexChange = (index) => {
         activeIndex.value = index;
+        const res = tabBar2.value.find((item) => index === +item.type);
+        currentTab.key = res.type;
+        currentTab.value = res.description;
       };
       return (_ctx, _cache) => {
         const _component_NavBar = resolveEasycom(vue.resolveDynamicComponent("NavBar"), __easycom_0$2);
@@ -4039,11 +4021,12 @@ ${i3}
             onActiveIndexchange: indexChange
           }, null, 8, ["activeIndex", "labelList"]),
           vue.createVNode(_component_ArticleList, {
+            currentTab,
             activeIndex: activeIndex.value,
             onActiveIndexchange: indexChange,
             labelList: tabBar2.value,
             class: "list-container"
-          }, null, 8, ["activeIndex", "labelList"])
+          }, null, 8, ["currentTab", "activeIndex", "labelList"])
         ]);
       };
     }

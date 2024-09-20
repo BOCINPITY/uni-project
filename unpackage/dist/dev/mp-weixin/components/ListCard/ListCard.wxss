@@ -29,10 +29,10 @@
   justify-content: space-between;
   flex-wrap: nowarp;
   flex-direction: row;
-  border-radius: 8px;
+  border-radius: 4px;
   padding: 20rpx;
   margin: 20rpx;
-  box-shadow: 0 0 10rpx 2rpx rgba(0, 119, 255, 0.3);
+  box-shadow: 0 0 10rpx 2rpx rgba(0, 0, 0, 0.3);
   position: relative;
 }
 .list-card .list-card-image.data-v-37ca02cc {
@@ -50,6 +50,18 @@
   position: absolute;
   right: 5%;
   top: 5%;
+}
+.list-card .list-card-description.data-v-37ca02cc {
+  font-size: 14px;
+  color: #3F536E;
+  margin: 20rpx;
+  text-indent: 2em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.2;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
 }
 .list-card .list-card-content.data-v-37ca02cc {
   display: flex;
@@ -75,24 +87,12 @@
 }
 .list-card .list-card-content .list-card-tag.data-v-37ca02cc {
   border: 1px solid #0077ff;
-  border-radius: 30px;
+  border-radius: 8px;
   font-size: 12px;
   padding: 5rpx;
   color: #0077ff;
   align-self: flex-start;
   margin-left: 20rpx;
-}
-.list-card .list-card-content .list-card-description.data-v-37ca02cc {
-  font-size: 14px;
-  color: #3F536E;
-  margin: 20rpx;
-  text-indent: 2em;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  line-height: 1.2;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
 }
 .list-card .list-card-content .list-card-views.data-v-37ca02cc {
   display: flex;
@@ -121,13 +121,40 @@
 .mutiple .images image.data-v-37ca02cc {
   width: 210rpx;
 }
+.mutiple .list-card-description.data-v-37ca02cc {
+  -webkit-line-clamp: 2;
+}
 .mutiple .list-card-title.data-v-37ca02cc {
   font-weight: 800;
   align-self: flex-start;
-  margin-bottom: 20rpx;
   margin-left: 20rpx;
 }
 .mutiple .list-card-content.data-v-37ca02cc {
   flex-direction: row;
   margin-top: 20rpx;
+}
+.mutiple .list-card-content .list-card-tag.data-v-37ca02cc {
+  margin-left: 10rpx;
+}
+.cover.data-v-37ca02cc {
+  flex-direction: column;
+}
+.cover .images.data-v-37ca02cc {
+  width: 100%;
+}
+.cover .images image.data-v-37ca02cc {
+  width: 100%;
+  height: 200rpx;
+}
+.cover .list-card-title.data-v-37ca02cc {
+  font-weight: 800;
+  align-self: flex-start;
+  margin-left: 20rpx;
+}
+.cover .list-card-content.data-v-37ca02cc {
+  flex-direction: row;
+  margin-top: 20rpx;
+}
+.cover .list-card-content .list-card-tag.data-v-37ca02cc {
+  margin-left: 10rpx;
 }

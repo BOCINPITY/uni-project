@@ -20,36 +20,64 @@ const _sfc_main = {
       return common_vendor.e({
         a: __props.item.mode === "base"
       }, __props.item.mode === "base" ? {
-        b: common_vendor.f(__props.item.url, (it, index, i0) => {
-          return {
-            a: it,
-            b: index
-          };
-        }),
-        c: common_vendor.t(__props.item.meta.title),
-        d: common_vendor.t(__props.item.meta.description),
+        b: __props.item.cover[0] ? __props.item.cover[0] : "/static/logo.png",
+        c: common_vendor.t(__props.item.title),
+        d: common_vendor.t(__props.item.description),
         e: common_vendor.t(__props.item.tag),
         f: common_vendor.p({
-          type: "eye",
-          size: "20"
+          type: "calendar",
+          size: "20",
+          color: "#0077FF"
         }),
-        g: common_vendor.t(__props.item.views)
+        g: common_vendor.t(__props.item.create_time),
+        h: common_vendor.p({
+          type: "eye",
+          size: "20",
+          color: "#0077FF"
+        }),
+        i: common_vendor.t(__props.item.browse_count)
       } : {}, {
-        h: __props.item.mode === "mutiple"
+        j: __props.item.mode === "mutiple"
       }, __props.item.mode === "mutiple" ? {
-        i: common_vendor.t(__props.item.meta.title),
-        j: common_vendor.f(__props.item.url, (it, index, i0) => {
+        k: common_vendor.t(__props.item.title),
+        l: common_vendor.t(__props.item.description),
+        m: common_vendor.f(__props.item.cover, (it, index, i0) => {
           return {
             a: it,
             b: index
           };
         }),
-        k: common_vendor.t(__props.item.tag),
-        l: common_vendor.p({
-          type: "eye",
-          size: "20"
+        n: common_vendor.t(__props.item.tag),
+        o: common_vendor.p({
+          type: "calendar",
+          size: "20",
+          color: "#0077FF"
         }),
-        m: common_vendor.t(__props.item.views)
+        p: common_vendor.t(__props.item.create_time),
+        q: common_vendor.p({
+          type: "eye",
+          size: "20",
+          color: "#0077FF"
+        }),
+        r: common_vendor.t(__props.item.browse_count)
+      } : {}, {
+        s: __props.item.mode === "cover"
+      }, __props.item.mode === "cover" ? {
+        t: common_vendor.t(__props.item.title),
+        v: __props.item.cover[0] ? __props.item.cover[0] : "/static/logo.png",
+        w: common_vendor.t(__props.item.tag),
+        x: common_vendor.p({
+          type: "calendar",
+          size: "20",
+          color: "#0077FF"
+        }),
+        y: common_vendor.t(__props.item.create_time),
+        z: common_vendor.p({
+          type: "eye",
+          size: "20",
+          color: "#0077FF"
+        }),
+        A: common_vendor.t(__props.item.browse_count)
       } : {});
     };
   }

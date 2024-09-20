@@ -691,10 +691,10 @@
   justify-content: space-between;
   flex-wrap: nowarp;
   flex-direction: row;
-  border-radius: 8px;
+  border-radius: 4px;
   padding: 0.625rem;
   margin: 0.625rem;
-  box-shadow: 0 0 0.15625rem 0.0625rem rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 0.3125rem 0.0625rem rgba(0, 0, 0, 0.3);
   position: relative;
 }
 .list-card .list-card-image[data-v-37ca02cc] {
@@ -749,7 +749,7 @@
 }
 .list-card .list-card-content .list-card-tag[data-v-37ca02cc] {
   border: 1px solid #0077ff;
-  border-radius: 30px;
+  border-radius: 8px;
   font-size: 12px;
   padding: 0.15625rem;
   color: #0077ff;

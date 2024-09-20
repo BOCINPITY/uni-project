@@ -1,9 +1,9 @@
 .list-card{
 	@include flex();
-	border-radius: $uni-border-radius-base;
+	border-radius: $uni-border-radius-sm;
 	padding: 20rpx;
 	margin: 20rpx;
-	box-shadow: 0 0 5rpx 2rpx rgba(0, 0, 0, 0.3);
+	box-shadow: 0 0 10rpx 2rpx rgba(0, 0, 0, 0.3);
 	position: relative;
 	.list-card-image{
 		width: 120rpx;
@@ -49,7 +49,7 @@
 
 		.list-card-tag{
 			border: 1px solid $uni-color-primary;
-			border-radius: $uni-border-radius-lg;
+			border-radius: $uni-border-radius-base;
 			font-size: $uni-font-size-sm;
 			padding: 5rpx;
 			color: $uni-color-primary;

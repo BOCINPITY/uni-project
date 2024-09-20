@@ -23,12 +23,8 @@
 /* 垂直间距 */
 /* 透明度 */
 /* 文章场景相关 */
-page.data-v-1cf27b2a {
-  display: flex;
-  height: 100%;
-}
 .home-container.data-v-1cf27b2a {
-  flex: 1;
+  height: 100vh;
   overflow: hidden;
   box-sizing: border-box;
   display: flex;
