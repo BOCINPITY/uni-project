@@ -11,78 +11,53 @@
 </template>
 
 <script setup>
-	import {
-		onBeforeMount,
-		ref,
-		watch
-	} from 'vue';
-	import {
-		getArticleList
-	} from '../../api/article';
+	import {onBeforeMount,ref,watch} from 'vue';
+	import {getArticleList} from '../../api/article';
 	const props = defineProps({
 		activeIndex: Number,
 		labelList: Array,
 		classify: String
 	})
-	const loadData = ref({})
 	const aticleDataList = ref({})
-	const loadStatus = ref("loding")
-	const pageSize = ref(3)
+	const pageSize = ref(6)
+	const current = ref({})
+	const totals = ref({})
+	const loadStatus = ref("more")
 	const emit = defineEmits(['activeIndexchange'])
-	const swiperChange = async ({
-		detail
-	}) => {
+	const swiperChange = async ({detail}) => {
 		emit('activeIndexchange', detail.current)
 	}
 	watch(() => props.classify, async (value, oldValue) => {
-		if(!loadData.value[props.activeIndex]){
-			loadData.value[props.activeIndex] = {
-				page:1,
-				loading:"loading",
-				total:0
-			}
-		}
-		if (!aticleDataList.value[props.activeIndex]) {
-			uni.showToast({
-				icon: "loading"
-			})
-			const {
-				list,
-				total
-			} = await getArticleList(props.classify, pageSize.value, loadData.value[props.activeIndex].page)
+		// 切换分类的时候触发
+		if (!aticleDataList.value[props.activeIndex]) { // 如果当前未存储这个分类下的数据，则进行请求
+			loadStatus.value = "loading"
+			const {list,total} = await getArticleList(props.classify, pageSize.value, 1)
 			aticleDataList.value[props.activeIndex] = list
-			loadData.value[props.activeIndex].total = total
+			loadStatus.value = (total <= pageSize.value) ? "no-more" : "more"
+			current.value[props.activeIndex] = 1
+			totals.value[props.activeIndex] = total
 		}
-		uni.hideToast()
 	})
 	const loadMoreData = async () => {
-		console.log(aticleDataList.value[props.activeIndex].length)
-		if (aticleDataList.value[props.activeIndex].length === loadData.value[props.activeIndex].total) {
-			loadData.value[props.activeIndex].loading="no-more"
+		const len = aticleDataList.value[props.activeIndex].length
+		if(len === totals.value[props.activeIndex]){
+			loadStatus.value = "no-more"
 			return
+		}else{
+			loadStatus.value = "loading"
+			const {list,total} = await getArticleList(props.classify, pageSize.value, ++current.value[props.activeIndex])
+			aticleDataList.value[props.activeIndex].push(...list)
+			loadStatus.value = "more"
 		}
-		loadData.value[props.activeIndex].loading = "loading"
-		const {
-			list,
-			total
-		} = await getArticleList(props.classify, pageSize.value, ++loadData.value[props.activeIndex].page)
-		aticleDataList.value[props.activeIndex].push(...list)
-		loadData.value[props.activeIndex].loading = "more"
 	}
+	// 初次加载全部的数据
 	onBeforeMount(async () => {
-		if(!loadData.value[props.activeIndex]){
-			loadData.value[props.activeIndex] = {
-				page:1,
-				loading:"loading",
-				total:0
-			}
-		}
-		const {
-			list,
-			total
-		} = await getArticleList(props.classify, pageSize.value, loadData.value[props.activeIndex].page)
+		loadStatus.value = "loading"
+		const {list,total} = await getArticleList(props.classify, pageSize.value, 1)
 		aticleDataList.value[props.activeIndex] = list
-		loadData.value[props.activeIndex].total = total
+		loadStatus.value = (total <= pageSize.value) ? "no-more" : "more"
+		current.value[props.activeIndex] = 1
+		totals.value[props.activeIndex] = total
 	})
 </script>
 

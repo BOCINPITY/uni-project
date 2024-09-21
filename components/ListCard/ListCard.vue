@@ -1,77 +1,94 @@
 <template>
 	<!-- 基础卡片 -->
 	<view class="list-card" v-if="item.mode === 'base'">
-		<image class="list-card-image" :src="item.cover[0] ? item.cover[0] : '/static/logo.png'" mode="aspectFill">
-		</image>
-		<view class="list-card-content">
+		<view class="list-card-header">
 			<view class="list-card-title">
 				{{item.title}}
 			</view>
+			<Start class="list-card-start"></Start>
+		</view>
+		<view class="list-card-content">
+			<image class="list-card-image" :src="item.cover[0] ? item.cover[0] : '/static/logo.png'" mode="aspectFill">
+			</image>
 			<view class="list-card-description">
 				{{item.description}}
 			</view>
+		</view>
+		<view class="list-card-footer">
 			<view class="list-card-tag">
 				{{item.tag}}
 			</view>
-			<view class="list-card-views">
+			<view class="list-card-publish-time">
 				<uni-icons type="calendar" size="20" color="#0077FF"></uni-icons>
-				<view class="publish_time">发布时间：{{item.create_time}}</view>
+				<view class="publish-time">发布时间：{{item.create_time}}</view>
+			</view>
+			<view class="list-card-browse-count">
 				<uni-icons type="eye" size="20" color="#0077FF"></uni-icons>
-				{{item.browse_count}}浏览
+				<view class="borws-count"> {{item.browse_count}}浏览</view>
+
 			</view>
 		</view>
-
-		<Start class="list-card-start"></Start>
 	</view>
 	<!-- 多图卡片 -->
 	<view class="list-card mutiple" v-if="item.mode === 'mutiple'">
-		<view class="list-card-title">
-			{{item.title}}
+		<view class="list-card-header">
+			<view class="list-card-title">
+				{{item.title}}
+			</view>
+			<Start class="list-card-start"></Start>
 		</view>
-		<view class="list-card-description">
-			{{item.description}}
-		</view>
-		<view class="images">
+		<view class="list-card-content">
 			<image class="list-card-image" v-for="(it,index) in item.cover" :src="it" :key="index" mode="aspectFill">
 			</image>
+			<view class="list-card-description">
+				{{item.description}}
+			</view>
 		</view>
-
-		<view class="list-card-content">
+		<view class="list-card-footer">
 			<view class="list-card-tag">
 				{{item.tag}}
 			</view>
-			<view class="list-card-views">
+			<view class="list-card-publish-time">
 				<uni-icons type="calendar" size="20" color="#0077FF"></uni-icons>
-				<view class="publish_time">发布时间：{{item.create_time}}</view>
+				<view class="publish-time">发布时间：{{item.create_time}}</view>
+			</view>
+			<view class="list-card-browse-count">
 				<uni-icons type="eye" size="20" color="#0077FF"></uni-icons>
-				{{item.browse_count}}浏览
+				<view class="borws-count"> {{item.browse_count}}浏览</view>
+	
 			</view>
 		</view>
-		<Start class="list-card-start"></Start>
 	</view>
 	<!-- 大图卡片 -->
 	<view class="list-card cover" v-if="item.mode === 'cover'">
-		<view class="list-card-title">
-			{{item.title}}
+		<view class="list-card-header">
+			<view class="list-card-title">
+				{{item.title}}
+			</view>
+			<Start class="list-card-start"></Start>
 		</view>
-		<Start class="list-card-start"></Start>
-		<view class="images">
+		<view class="list-card-content">
 			<image class="list-card-image" :src="item.cover[0] ? item.cover[0] : '/static/logo.png'" mode="aspectFill">
 			</image>
+			<view class="wapper"></view>
+			<view class="list-card-description">
+				{{item.description}}
+			</view>
 		</view>
-
-		<view class="list-card-content">
+		<view class="list-card-footer">
 			<view class="list-card-tag">
 				{{item.tag}}
 			</view>
-			<view class="list-card-views">
+			<view class="list-card-publish-time">
 				<uni-icons type="calendar" size="20" color="#0077FF"></uni-icons>
-				<view class="publish_time">发布时间：{{item.create_time}}</view>
+				<view class="publish-time">发布时间：{{item.create_time}}</view>
+			</view>
+			<view class="list-card-browse-count">
 				<uni-icons type="eye" size="20" color="#0077FF"></uni-icons>
-				{{item.browse_count}}浏览
+				<view class="borws-count"> {{item.browse_count}}浏览</view>
+
 			</view>
 		</view>
-
 	</view>
 </template>
 

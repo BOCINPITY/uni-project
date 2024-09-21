@@ -19,65 +19,44 @@ const _sfc_main = {
   emits: ["activeIndexchange"],
   setup(__props, { emit: __emit }) {
     const props = __props;
-    const loadData = common_vendor.ref({});
     const aticleDataList = common_vendor.ref({});
-    const loadStatus = common_vendor.ref("loding");
-    const pageSize = common_vendor.ref(3);
+    const pageSize = common_vendor.ref(6);
+    const current = common_vendor.ref({});
+    const totals = common_vendor.ref({});
+    const loadStatus = common_vendor.ref("more");
     const emit = __emit;
-    const swiperChange = async ({
-      detail
-    }) => {
+    const swiperChange = async ({ detail }) => {
       emit("activeIndexchange", detail.current);
     };
     common_vendor.watch(() => props.classify, async (value, oldValue) => {
-      if (!loadData.value[props.activeIndex]) {
-        loadData.value[props.activeIndex] = {
-          page: 1,
-          loading: "loading",
-          total: 0
-        };
-      }
       if (!aticleDataList.value[props.activeIndex]) {
-        common_vendor.index.showToast({
-          icon: "loading"
-        });
-        const {
-          list,
-          total
-        } = await api_article.getArticleList(props.classify, pageSize.value, loadData.value[props.activeIndex].page);
+        loadStatus.value = "loading";
+        const { list, total } = await api_article.getArticleList(props.classify, pageSize.value, 1);
         aticleDataList.value[props.activeIndex] = list;
-        loadData.value[props.activeIndex].total = total;
+        loadStatus.value = total <= pageSize.value ? "no-more" : "more";
+        current.value[props.activeIndex] = 1;
+        totals.value[props.activeIndex] = total;
       }
-      common_vendor.index.hideToast();
     });
     const loadMoreData = async () => {
-      console.log(aticleDataList.value[props.activeIndex].length);
-      if (aticleDataList.value[props.activeIndex].length === loadData.value[props.activeIndex].total) {
-        loadData.value[props.activeIndex].loading = "no-more";
+      const len = aticleDataList.value[props.activeIndex].length;
+      if (len === totals.value[props.activeIndex]) {
+        loadStatus.value = "no-more";
         return;
+      } else {
+        loadStatus.value = "loading";
+        const { list, total } = await api_article.getArticleList(props.classify, pageSize.value, ++current.value[props.activeIndex]);
+        aticleDataList.value[props.activeIndex].push(...list);
+        loadStatus.value = "more";
       }
-      loadData.value[props.activeIndex].loading = "loading";
-      const {
-        list,
-        total
-      } = await api_article.getArticleList(props.classify, pageSize.value, ++loadData.value[props.activeIndex].page);
-      aticleDataList.value[props.activeIndex].push(...list);
-      loadData.value[props.activeIndex].loading = "more";
     };
     common_vendor.onBeforeMount(async () => {
-      if (!loadData.value[props.activeIndex]) {
-        loadData.value[props.activeIndex] = {
-          page: 1,
-          loading: "loading",
-          total: 0
-        };
-      }
-      const {
-        list,
-        total
-      } = await api_article.getArticleList(props.classify, pageSize.value, loadData.value[props.activeIndex].page);
+      loadStatus.value = "loading";
+      const { list, total } = await api_article.getArticleList(props.classify, pageSize.value, 1);
       aticleDataList.value[props.activeIndex] = list;
-      loadData.value[props.activeIndex].total = total;
+      loadStatus.value = total <= pageSize.value ? "no-more" : "more";
+      current.value[props.activeIndex] = 1;
+      totals.value[props.activeIndex] = total;
     });
     return (_ctx, _cache) => {
       return {

@@ -1,113 +1,102 @@
 .list-card{
-	@include flex();
+	@include flex(space-between,column);
 	border-radius: $uni-border-radius-sm;
 	padding: 20rpx;
 	margin: 20rpx;
 	box-shadow: 0 0 10rpx 2rpx rgba(0, 0, 0, 0.3);
-	position: relative;
-	.list-card-image{
-		width: 120rpx;
-		height: 120rpx;
-		border-radius: 10rpx;
-		overflow: hidden;
-		flex-shrink: 0;
-		image{
-			height: 100%;
-			width: 100%;
+	.list-card-header{
+		@include flex();
+		width: 100%;
+		.list-card-title{
+			font-size: $uni-font-size-title;
+			color: $uni-color-title;
 		}
-	}
-	.list-card-start{
-		position: absolute;
-		right: 5%;
-		top: 5%;
-	}
-	.list-card-description{
-		font-size: $uni-font-size-base;
-		color: $uni-color-paragraph;
-		margin: 20rpx;
-		text-indent: 2em;
-		overflow: hidden;
-		text-overflow: ellipsis;
-		line-height: 1.2;
-		display: -webkit-box;
-		-webkit-line-clamp: 3;
-		-webkit-box-orient: vertical;
 	}
 	.list-card-content{
-		@include flex(space-between,column);
-		width: 100%;
-		position: relative;
-		.list-card-title{
-			font-weight: 800;
-			width: 100%;
-			color: $uni-color-title;
-			padding-left: 20rpx;
-			font-size: $uni-font-size-lg;
-			@include flex(flex-start);
-			align-items: flex-start;
+		@include flex(space-between,row);
+		margin: $uni-spacing-col-base 0;
+		.list-card-image{
+			width: 120rpx;
+			height: 120rpx;
+			border-radius: $uni-border-radius-sm;
+			overflow: hidden;
+			flex-shrink: 0;
+			image{
+				height: 100%;
+				width: 100%;
+			}
 		}
-
+		.list-card-description{
+			font-size: $uni-font-size-base;
+			padding: 0 $uni-spacing-row-lg;
+			@include paragraphHide(3);
+		}
+	}
+	.list-card-footer{
+		width: 100%;
+		font-size: $uni-font-size-sm;
+		@include flex();
 		.list-card-tag{
 			border: 1px solid $uni-color-primary;
-			border-radius: $uni-border-radius-base;
-			font-size: $uni-font-size-sm;
-			padding: 5rpx;
+			padding: 0 5rpx;
 			color: $uni-color-primary;
-			align-self: flex-start;
-			margin-left: 20rpx;
+			border-radius: $uni-border-radius-sm;
 		}
-
-		.list-card-views{
+		.list-card-publish-time{
 			@include flex(flex-end);
-			font-size: $uni-font-size-sm;
-			align-self: flex-end
+			flex:1;
+			.publish-time{
+			}
 		}
-	}
-}
-.mutiple{
-	@include flex(space-between,column);
-	.images{
-		width: 100%;
-		@include flex(space-around);
-		image{
-			width: 210rpx;
-		}
-	}
-	.list-card-description{
-		-webkit-line-clamp: 2;
-	}
-	.list-card-title{
-		font-weight: 800;
-		align-self: flex-start;
-		margin-left: 20rpx;
-	}
-	.list-card-content{
-		flex-direction: row;
-		margin-top: 20rpx;
-		.list-card-tag{
-			margin-left: 10rpx;
+		.list-card-browse-count{
+			@include flex();
 		}
 	}
 }
 .cover{
-	flex-direction: column;
-	.images{
+	.list-card-content{
+		display: block;
+		position: relative;
+		flex: 1;
 		width: 100%;
-		image{
+		.list-card-image{
 			width: 100%;
 			height: 200rpx;
+			border-radius: $uni-border-radius-sm;
+			overflow: hidden;
+			flex-shrink: 0;
+			position: relative;
+			image{
+				height: 100%;
+				width: 100%;
+			}
+			.image-container {
+			  position: relative;
+			  img {
+			    width: 100%;
+			    height: auto;
+			  }
+			}
 		}
-	}
-	.list-card-title{
-		font-weight: 800;
-		align-self: flex-start;
-		margin-left: 20rpx;
-	}
-	.list-card-content{
-		flex-direction: row;
-		margin-top: 20rpx;
-		.list-card-tag{
-			margin-left: 10rpx;
+		.wapper{
+			z-index: 1;
+			border-radius: $uni-border-radius-sm;
+			position: absolute;
+			width: 100%;
+			height: 200rpx;
+			left: 0;
+			top: 0;
+			background:$uni-bg-color-mask;
+		}
+		.list-card-description{
+			z-index: 999;
+			color: white;
+			width: 80%;
+			font-size: $uni-font-size-lg;
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			transform: translate(-50%,-50%);
 		}
 	}
 }
