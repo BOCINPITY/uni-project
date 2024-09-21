@@ -1,31 +1,43 @@
 <template>
 	<view class="search-container">
-		<view class="searche-header">
+		<view class="search-header">
 			<view :style="{height:barHeight + 'rpx'}"></view>
-			<uni-icons type="left" color="#FFFFFF" @click="handleBack"></uni-icons>
+			<view class="header-content">
+				<view class="back-icon"> <uni-icons type="left" color="#FFFFFF" @click="handleBack"></uni-icons></view>
+				<view class="info">搜索</view>
+			</view>
 		</view>
 	</view>
 </template>
 
 <script setup>
-	const {
-		statusBarHeight
-	} = uni.getSystemInfoSync()
-	let barHeight = statusBarHeight * 2 || 0
-
-	// #ifdef MP-WEIXIN
-	const menuinfo = uni.getMenuButtonBoundingClientRect()
-	barHeight = menuinfo.top * 2
-	// #endif
-
+	import { useTopFit } from '../../utils';
+	const {barHeight} = useTopFit()
 	const handleBack = () => {
 		uni.navigateBack()
 	}
 </script>
 
 <style lang="scss">
-	.searche-header {
-		background-color: $uni-bg-color;
-		padding: 20rpx;
+	.search-container {
+		width: 100%;
+		@include flex(flex-start,column);
+		.search-header {
+			width: 100%;
+			align-items: flex-end;
+			background-color: $uni-bg-color;
+			padding: $uni-spacing-row-sm 0;
+			.header-content{
+				@include flex();
+				.back-icon {
+					padding: 0 $uni-spacing-row-sm;
+				}
+				.info {
+					flex: 1;
+					color: white;
+					@include flex(center);
+				}
+			}
+		}
 	}
 </style>

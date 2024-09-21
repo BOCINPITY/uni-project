@@ -1,0 +1,109 @@
+
+
+	.login-container {
+		width: 100%;
+		height:100%;
+		@include flex(flex-start,column);
+		.login-header {
+			width: 100%;
+			align-items: flex-end;
+			background-color: $uni-bg-color;
+			.header-content{
+				@include flex();
+				.back-icon {
+					padding: 0 $uni-spacing-row-sm;
+				}
+				.info {
+					flex: 1;
+					color: white;
+					@include flex(center);
+				}
+			}
+		}
+		.login-bg{
+			width: 100%;
+			@include flex(center);
+			background-color: $uni-color-primary;
+		}
+		.login-content{
+			background-color: $uni-bg-color-grey;
+			width: 100%;
+			.login-tab{
+				@include flex(center);
+				padding: $uni-spacing-row-lg;
+				.tab-item{
+					color: $uni-text-color-grey;
+					margin: 0 $uni-spacing-row-lg * 2;
+					&.active{
+						color: $uni-color-primary;
+						&:after{
+							content: '';
+							display: block;
+							width: 100%;
+							height: 2px;
+							background-color: $uni-color-primary;
+						}
+					}
+				}
+			}
+			.login-form{
+				background-color: white;
+				.login-btn{
+					background-color: $uni-color-primary;
+					width: 300rpx;
+					color: white;
+					border-radius: $uni-border-radius-base;
+				}
+			}
+		}
+		.login-footer{
+			@include flex();
+			width: 100%;
+			flex:1;
+			margin-top: $uni-spacing-col-lg;
+			.login-footer-item{
+				padding: $uni-spacing-row-lg *2;
+				color: $uni-text-color-grey;
+				font-size: $uni-font-size-base;
+				text-decoration: underline;
+				
+			}
+		}
+	}
+	:deep(.uni-forms-item__label){
+		color: black;
+		font-size: 16px;
+	}
+	.vcode{
+		position: absolute;
+		right: 0;
+		top: 50%;
+		transform: translate(20%,-50%);
+	}
+	.login-form-item{
+		position: relative;
+		margin: 0 $uni-spacing-row-lg;
+		padding: $uni-spacing-col-lg;
+		.form-input{
+			height: 100%;
+			@include flex(center,column);
+			.placeholder{
+				flex: 1;
+				align-items: center;
+				color: $uni-text-color-placeholder;
+			}
+		}
+	}
+
+:deep(.uni-forms-item) {
+		position: relative;
+		margin: 0 $uni-spacing-row-lg;
+		padding: $uni-spacing-col-lg;
+		input{
+			background-color: $uni-bg-color-grey;
+			padding:0 $uni-spacing-row-lg;
+			border-radius: $uni-border-radius-base;
+			height: 100%;
+			width: 300rpx;
+		}
+}

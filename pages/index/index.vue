@@ -8,21 +8,13 @@
 </template>
 
 <script setup>
-	import {
-		onBeforeMount,
-		reactive,
-		ref
-	} from 'vue';
+	import {onBeforeMount,reactive,ref} from 'vue';
+	import { getLabelList } from '../../api/label';
 	const tabBar = ref([])
 	const activeIndex = ref(0)
 	const classify = ref("全部")
 	onBeforeMount(async () => {
-		const {
-			result
-		} = await uniCloud.callFunction({
-			name: "label_get_list"
-		})
-		tabBar.value = result.res
+		tabBar.value = await getLabelList()
 	})
 	const indexChange = (index) => {
 		activeIndex.value = index

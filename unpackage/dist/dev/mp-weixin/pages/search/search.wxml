@@ -1,1 +1,1 @@
-<view class="search-container"><view class="searche-header"><view style="{{'height:' + a}}"></view><uni-icons wx:if="{{c}}" bindclick="{{b}}" u-i="510333ea-0" bind:__l="__l" u-p="{{c}}"></uni-icons></view></view>
+<view class="search-container"><view class="search-header"><view style="{{'height:' + a}}"></view><view class="header-content"><view class="back-icon"><uni-icons wx:if="{{c}}" bindclick="{{b}}" u-i="510333ea-0" bind:__l="__l" u-p="{{c}}"></uni-icons></view><view class="info">搜索</view></view></view></view>

@@ -21,7 +21,6 @@
 		},
 		loadStatus:String
 	})
-	console.log(props.loadStatus)
 	const emits = defineEmits(["loadMore"])
 	const loadMore = () => {
 		emits("loadMore")

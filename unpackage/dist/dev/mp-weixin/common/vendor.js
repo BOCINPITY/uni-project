@@ -7914,6 +7914,12 @@ const pages = [
     style: {
       navigationStyle: "custom"
     }
+  },
+  {
+    path: "pages/userinfo/login/login",
+    style: {
+      navigationStyle: "custom"
+    }
   }
 ];
 const globalStyle = {

@@ -555,7 +555,36 @@
 /* 垂直间距 */
 /* 透明度 */
 /* 文章场景相关 */
-.searche-header {
+.search-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: nowarp;
+  flex-direction: column;
+}
+.search-container .search-header {
+  width: 100%;
+  align-items: flex-end;
   background-color: #0077ff;
-  padding: 0.625rem;
+  padding: 5px 0;
+}
+.search-container .search-header .header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: nowarp;
+  flex-direction: row;
+}
+.search-container .search-header .header-content .back-icon {
+  padding: 0 5px;
+}
+.search-container .search-header .header-content .info {
+  flex: 1;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: nowarp;
+  flex-direction: row;
 }

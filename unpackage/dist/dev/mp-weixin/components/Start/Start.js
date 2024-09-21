@@ -17,17 +17,17 @@ const _sfc_main = {
     }
   },
   setup(__props) {
-    const handleStart = () => {
-      console.log(66);
+    const handleStart = async () => {
+      common_vendor.index.navigateTo({ url: "/pages/userinfo/login/login" });
     };
     return (_ctx, _cache) => {
       return {
-        a: common_vendor.o(handleStart),
-        b: common_vendor.p({
+        a: common_vendor.p({
           color: "#0077FF",
           type: __props.heartType,
           size: "20"
-        })
+        }),
+        b: common_vendor.o(handleStart)
       };
     };
   }

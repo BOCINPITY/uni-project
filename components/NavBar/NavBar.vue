@@ -16,14 +16,8 @@
 </template>
 
 <script setup>
-	const {statusBarHeight} = uni.getSystemInfoSync()
-	let barHeight = statusBarHeight * 2 || 20
-	let marginRight = 0
-	// #ifdef MP-WEIXIN
-	const menuinfo = uni.getMenuButtonBoundingClientRect()
-	barHeight = menuinfo.top * 2
-	marginRight = menuinfo.width * 2
-	// #endif
+	import { useTopFit } from '../../utils';
+	const {barHeight,marginRight} = useTopFit()
 	const handleSearch = () => {
 		uni.navigateTo({
 			url:"/pages/search/search",

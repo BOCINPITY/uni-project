@@ -1,5 +1,6 @@
 "use strict";
 const common_vendor = require("../../common/vendor.js");
+const api_label = require("../../api/label.js");
 if (!Array) {
   const _easycom_NavBar2 = common_vendor.resolveComponent("NavBar");
   const _easycom_TabBar2 = common_vendor.resolveComponent("TabBar");
@@ -19,12 +20,7 @@ const _sfc_main = {
     const activeIndex = common_vendor.ref(0);
     const classify = common_vendor.ref("全部");
     common_vendor.onBeforeMount(async () => {
-      const {
-        result
-      } = await common_vendor.Vs.callFunction({
-        name: "label_get_list"
-      });
-      tabBar.value = result.res;
+      tabBar.value = await api_label.getLabelList();
     });
     const indexChange = (index) => {
       activeIndex.value = index;

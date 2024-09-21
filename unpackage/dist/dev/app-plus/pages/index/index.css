@@ -690,135 +690,116 @@
   align-items: center;
   justify-content: space-between;
   flex-wrap: nowarp;
-  flex-direction: row;
+  flex-direction: column;
   border-radius: 4px;
   padding: 0.625rem;
   margin: 0.625rem;
   box-shadow: 0 0 0.3125rem 0.0625rem rgba(0, 0, 0, 0.3);
-  position: relative;
 }
-.list-card .list-card-image[data-v-37ca02cc] {
-  width: 3.75rem;
-  height: 3.75rem;
-  border-radius: 0.3125rem;
-  overflow: hidden;
-  flex-shrink: 0;
-}
-.list-card .list-card-image uni-image[data-v-37ca02cc] {
-  height: 100%;
-  width: 100%;
-}
-.list-card .list-card-start[data-v-37ca02cc] {
-  position: absolute;
-  right: 5%;
-  top: 5%;
-}
-.list-card .list-card-description[data-v-37ca02cc] {
-  font-size: 14px;
-  color: #3F536E;
-  margin: 0.625rem;
-  text-indent: 2em;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  line-height: 1.2;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-}
-.list-card .list-card-content[data-v-37ca02cc] {
+.list-card .list-card-header[data-v-37ca02cc] {
   display: flex;
   align-items: center;
   justify-content: space-between;
   flex-wrap: nowarp;
-  flex-direction: column;
+  flex-direction: row;
   width: 100%;
-  position: relative;
 }
-.list-card .list-card-content .list-card-title[data-v-37ca02cc] {
-  font-weight: 800;
-  width: 100%;
-  color: #2C405A;
-  padding-left: 0.625rem;
-  font-size: 16px;
+.list-card .list-card-header .list-card-title[data-v-37ca02cc] {
+  font-size: 20px;
+  color: #000000;
+}
+.list-card .list-card-content[data-v-37ca02cc] {
   display: flex;
   align-items: center;
   justify-content: flex-start;
   flex-wrap: nowarp;
   flex-direction: row;
-  align-items: flex-start;
+  width: 100%;
+  margin: 8px 0;
 }
-.list-card .list-card-content .list-card-tag[data-v-37ca02cc] {
-  border: 1px solid #0077ff;
-  border-radius: 8px;
+.list-card .list-card-content .list-card-image[data-v-37ca02cc] {
+  box-shadow: 0 0 0.3125rem 0.0625rem rgba(0, 0, 0, 0.3);
+  width: 4.6875rem;
+  height: 4.6875rem;
+  border-radius: 4px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.list-card .list-card-content .list-card-description[data-v-37ca02cc] {
+  font-size: 14px;
+  padding: 0 15px;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 3;
+}
+.list-card .list-card-footer[data-v-37ca02cc] {
+  width: 100%;
   font-size: 12px;
-  padding: 0.15625rem;
-  color: #0077ff;
-  align-self: flex-start;
-  margin-left: 0.625rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: nowarp;
+  flex-direction: row;
 }
-.list-card .list-card-content .list-card-views[data-v-37ca02cc] {
+.list-card .list-card-footer .list-card-tag[data-v-37ca02cc] {
+  border: 1px solid #0077ff;
+  padding: 0 0.15625rem;
+  color: #0077ff;
+  border-radius: 4px;
+}
+.list-card .list-card-footer .list-card-publish-time[data-v-37ca02cc] {
   display: flex;
   align-items: center;
   justify-content: flex-end;
   flex-wrap: nowarp;
   flex-direction: row;
-  font-size: 12px;
-  align-self: flex-end;
+  flex: 1;
 }
-.mutiple[data-v-37ca02cc] {
+.list-card .list-card-footer .list-card-browse-count[data-v-37ca02cc] {
   display: flex;
   align-items: center;
   justify-content: space-between;
   flex-wrap: nowarp;
-  flex-direction: column;
-}
-.mutiple .images[data-v-37ca02cc] {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  flex-wrap: nowarp;
   flex-direction: row;
-}
-.mutiple .images uni-image[data-v-37ca02cc] {
-  width: 6.5625rem;
-}
-.mutiple .list-card-description[data-v-37ca02cc] {
-  -webkit-line-clamp: 2;
-}
-.mutiple .list-card-title[data-v-37ca02cc] {
-  font-weight: 800;
-  align-self: flex-start;
-  margin-left: 0.625rem;
-}
-.mutiple .list-card-content[data-v-37ca02cc] {
-  flex-direction: row;
-  margin-top: 0.625rem;
-}
-.mutiple .list-card-content .list-card-tag[data-v-37ca02cc] {
-  margin-left: 0.3125rem;
-}
-.cover[data-v-37ca02cc] {
-  flex-direction: column;
-}
-.cover .images[data-v-37ca02cc] {
-  width: 100%;
-}
-.cover .images uni-image[data-v-37ca02cc] {
-  width: 100%;
-  height: 6.25rem;
-}
-.cover .list-card-title[data-v-37ca02cc] {
-  font-weight: 800;
-  align-self: flex-start;
-  margin-left: 0.625rem;
 }
 .cover .list-card-content[data-v-37ca02cc] {
-  flex-direction: row;
-  margin-top: 0.625rem;
+  display: block;
+  position: relative;
+  flex: 1;
+  width: 100%;
 }
-.cover .list-card-content .list-card-tag[data-v-37ca02cc] {
-  margin-left: 0.3125rem;
+.cover .list-card-content .list-card-image[data-v-37ca02cc] {
+  width: 100%;
+  height: 6.25rem;
+  border-radius: 4px;
+  overflow: hidden;
+  flex-shrink: 0;
+  position: relative;
+}
+.cover .list-card-content .wapper[data-v-37ca02cc] {
+  z-index: 1;
+  border-radius: 4px;
+  position: absolute;
+  width: 100%;
+  height: 6.25rem;
+  left: 0;
+  top: 0;
+  background: rgba(0, 0, 0, 0.3);
+}
+.cover .list-card-content .list-card-description[data-v-37ca02cc] {
+  z-index: 999;
+  color: white;
+  width: 80%;
+  font-size: 16px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+.mutiple .list-card-content .list-card-image[data-v-37ca02cc] {
+  margin: 0 5px;
 }
 /**
  * 这里是uni-app内置的常用样式变量

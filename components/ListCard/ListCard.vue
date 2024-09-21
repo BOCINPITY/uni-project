@@ -1,6 +1,6 @@
 <template>
 	<!-- 基础卡片 -->
-	<view class="list-card" v-if="item.mode === 'base'">
+	<view class="list-card" v-if="item.mode === 'base'" @click="handleClickCard">
 		<view class="list-card-header">
 			<view class="list-card-title">
 				{{item.title}}
@@ -30,7 +30,7 @@
 		</view>
 	</view>
 	<!-- 多图卡片 -->
-	<view class="list-card mutiple" v-if="item.mode === 'mutiple'">
+	<view class="list-card mutiple" v-if="item.mode === 'mutiple'" @click="handleClickCard">
 		<view class="list-card-header">
 			<view class="list-card-title">
 				{{item.title}}
@@ -60,7 +60,7 @@
 		</view>
 	</view>
 	<!-- 大图卡片 -->
-	<view class="list-card cover" v-if="item.mode === 'cover'">
+	<view class="list-card cover" v-if="item.mode === 'cover'" @click="handleClickCard">
 		<view class="list-card-header">
 			<view class="list-card-title">
 				{{item.title}}
@@ -96,6 +96,9 @@
 	const props = defineProps({
 		item: Object
 	})
+	const handleClickCard = async() => {
+		console.log("handleClickCard")
+	}
 </script>
 
 <style scoped lang="scss">

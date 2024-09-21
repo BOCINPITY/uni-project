@@ -1,5 +1,6 @@
 "use strict";
 const common_vendor = require("../../common/vendor.js");
+const utils_index = require("../../utils/index.js");
 if (!Array) {
   const _easycom_uni_icons2 = common_vendor.resolveComponent("uni-icons");
   _easycom_uni_icons2();
@@ -11,12 +12,7 @@ if (!Math) {
 const _sfc_main = {
   __name: "NavBar",
   setup(__props) {
-    const { statusBarHeight } = common_vendor.index.getSystemInfoSync();
-    let barHeight = statusBarHeight * 2 || 20;
-    let marginRight = 0;
-    const menuinfo = common_vendor.index.getMenuButtonBoundingClientRect();
-    barHeight = menuinfo.top * 2;
-    marginRight = menuinfo.width * 2;
+    const { barHeight, marginRight } = utils_index.useTopFit();
     const handleSearch = () => {
       common_vendor.index.navigateTo({
         url: "/pages/search/search"

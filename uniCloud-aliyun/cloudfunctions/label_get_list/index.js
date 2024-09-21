@@ -8,6 +8,6 @@ exports.main = async (event, context) => {
 	return {
 		code: 200,
 		msg: "success",
-		res: res.data
+		data: res.data
 	}
 };

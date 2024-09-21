@@ -1,1 +1,1 @@
-<uni-icons wx:if="{{b}}" bindclick="{{a}}" u-i="80e4f3b4-0" bind:__l="__l" u-p="{{b}}"></uni-icons>
+<view class="start-icon" catchtap="{{b}}"><uni-icons wx:if="{{a}}" u-i="80e4f3b4-0" bind:__l="__l" u-p="{{a}}"></uni-icons></view>

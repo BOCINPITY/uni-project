@@ -21,8 +21,6 @@ const _sfc_main = {
   },
   emits: ["loadMore"],
   setup(__props, { emit: __emit }) {
-    const props = __props;
-    console.log(props.loadStatus);
     const emits = __emit;
     const loadMore = () => {
       emits("loadMore");
