@@ -14,6 +14,7 @@
 					padding: 0 $uni-spacing-row-sm;
 				}
 				.info {
+					font-size: $uni-font-size-slg;
 					flex: 1;
 					color: white;
 					@include flex(center);
@@ -49,6 +50,7 @@
 			.login-form{
 				background-color: white;
 				.login-btn{
+					margin-top: $uni-spacing-col-lg;
 					background-color: $uni-color-primary;
 					width: 300rpx;
 					color: white;
@@ -72,38 +74,20 @@
 	}
 	:deep(.uni-forms-item__label){
 		color: black;
-		font-size: 16px;
 	}
 	.vcode{
 		position: absolute;
 		right: 0;
 		top: 50%;
-		transform: translate(20%,-50%);
+		transform: translate(110%,-50%);
 	}
 	.login-form-item{
 		position: relative;
 		margin: 0 $uni-spacing-row-lg;
+		margin-right: $uni-spacing-row-lg * 6;
 		padding: $uni-spacing-col-lg;
 		.form-input{
 			height: 100%;
 			@include flex(center,column);
-			.placeholder{
-				flex: 1;
-				align-items: center;
-				color: $uni-text-color-placeholder;
-			}
 		}
 	}
-
-:deep(.uni-forms-item) {
-		position: relative;
-		margin: 0 $uni-spacing-row-lg;
-		padding: $uni-spacing-col-lg;
-		input{
-			background-color: $uni-bg-color-grey;
-			padding:0 $uni-spacing-row-lg;
-			border-radius: $uni-border-radius-base;
-			height: 100%;
-			width: 300rpx;
-		}
-}

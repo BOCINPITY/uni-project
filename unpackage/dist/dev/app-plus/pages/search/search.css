@@ -555,7 +555,7 @@
 /* 垂直间距 */
 /* 透明度 */
 /* 文章场景相关 */
-.search-container {
+.container[data-v-5b4cc82c] {
   width: 100%;
   display: flex;
   align-items: center;
@@ -563,24 +563,25 @@
   flex-wrap: nowarp;
   flex-direction: column;
 }
-.search-container .search-header {
+.container .header[data-v-5b4cc82c] {
   width: 100%;
   align-items: flex-end;
   background-color: #0077ff;
   padding: 5px 0;
 }
-.search-container .search-header .header-content {
+.container .header .header-content[data-v-5b4cc82c] {
   display: flex;
   align-items: center;
   justify-content: space-between;
   flex-wrap: nowarp;
   flex-direction: row;
 }
-.search-container .search-header .header-content .back-icon {
+.container .header .header-content .back-icon[data-v-5b4cc82c] {
   padding: 0 5px;
 }
-.search-container .search-header .header-content .info {
+.container .header .header-content .info[data-v-5b4cc82c] {
   flex: 1;
+  font-size: 20px;
   color: white;
   display: flex;
   align-items: center;
