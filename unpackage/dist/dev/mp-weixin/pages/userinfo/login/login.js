@@ -4,7 +4,7 @@ const common_assets = require("../../../common/assets.js");
 const verifyRules_login_index = require("../../../verifyRules/login/index.js");
 const utils_index = require("../../../utils/index.js");
 const api_user = require("../../../api/user.js");
-const store_index = require("../../../store/index.js");
+const store_user = require("../../../store/user.js");
 if (!Array) {
   const _easycom_PageHeader2 = common_vendor.resolveComponent("PageHeader");
   const _easycom_uni_easyinput2 = common_vendor.resolveComponent("uni-easyinput");
@@ -27,12 +27,13 @@ const _sfc_main = {
     const loginFormRef = common_vendor.ref();
     utils_index.useTopFit();
     const type = common_vendor.ref("account");
+    const { updateUserInfo } = store_user.useUserStore();
     const formData = common_vendor.ref({ account: "", password: "", phone: "", vcode: "" });
     const handleLogin = async () => {
       const res = await loginFormRef.value.validate();
       const resp = await api_user.login({ ...res, type: type.value });
       if (resp) {
-        store_index.store.commit("userStore/updateUserInfo", resp);
+        updateUserInfo(resp);
         common_vendor.index.navigateBack();
       }
     };
@@ -106,7 +107,7 @@ const _sfc_main = {
           "k": "loginFormRef"
         }),
         y: common_vendor.p({
-          modelValue: formData.value,
+          model: formData.value,
           rules: common_vendor.unref(verifyRules_login_index.rules),
           validateTrigger: "bind"
         })

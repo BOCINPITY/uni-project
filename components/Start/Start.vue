@@ -6,16 +6,22 @@
 </template>
 
 <script setup>
+	import { useUserStore } from '@/store/user';
+	import {storeToRefs} from "pinia";
 	const props = defineProps({
 		heartType:{
 			type:String,
 			default:"heart",
 		}
 	})
-	// const emits = defineEmits(["handleStart"])
+	
+	const {info} = storeToRefs(useUserStore())
+	const emits = defineEmits(["clickStart"])
 	const handleStart = async() => {
+		if(!info.value)
 		// todo:判断用户是否登录
 		uni.navigateTo({url:"/pages/userinfo/login/login"})
+		emits("clickStart")
 	}
 </script>
 

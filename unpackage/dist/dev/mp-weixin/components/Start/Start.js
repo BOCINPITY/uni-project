@@ -1,5 +1,6 @@
 "use strict";
 const common_vendor = require("../../common/vendor.js");
+const store_user = require("../../store/user.js");
 if (!Array) {
   const _easycom_uni_icons2 = common_vendor.resolveComponent("uni-icons");
   _easycom_uni_icons2();
@@ -16,9 +17,14 @@ const _sfc_main = {
       default: "heart"
     }
   },
-  setup(__props) {
+  emits: ["clickStart"],
+  setup(__props, { emit: __emit }) {
+    const { info } = common_vendor.storeToRefs(store_user.useUserStore());
+    const emits = __emit;
     const handleStart = async () => {
-      common_vendor.index.navigateTo({ url: "/pages/userinfo/login/login" });
+      if (!info.value)
+        common_vendor.index.navigateTo({ url: "/pages/userinfo/login/login" });
+      emits("clickStart");
     };
     return (_ctx, _cache) => {
       return {

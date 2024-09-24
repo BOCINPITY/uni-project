@@ -1,10 +1,5 @@
 "use strict";
 const common_vendor = require("../common/vendor.js");
-function delay(duration) {
-  return new Promise((resolve, reject) => {
-    setTimeout(resolve, duration);
-  });
-}
 function useTopFit() {
   const { statusBarHeight } = common_vendor.index.getSystemInfoSync();
   let barHeight = statusBarHeight * 2 || 20;
@@ -17,5 +12,4 @@ function useTopFit() {
     marginRight
   };
 }
-exports.delay = delay;
 exports.useTopFit = useTopFit;

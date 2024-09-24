@@ -19,72 +19,78 @@ const _sfc_main = {
     const handleClickCard = async () => {
       console.log("handleClickCard");
     };
+    const handleStart = (id) => {
+      console.log(id);
+    };
     return (_ctx, _cache) => {
       return common_vendor.e({
         a: __props.item.mode === "base"
       }, __props.item.mode === "base" ? {
         b: common_vendor.t(__props.item.title),
-        c: __props.item.cover[0] ? __props.item.cover[0] : "/static/logo.png",
-        d: common_vendor.t(__props.item.description),
-        e: common_vendor.t(__props.item.tag),
-        f: common_vendor.p({
+        c: common_vendor.o(($event) => handleStart(__props.item._id)),
+        d: __props.item.cover[0] ? __props.item.cover[0] : "/static/logo.png",
+        e: common_vendor.t(__props.item.description),
+        f: common_vendor.t(__props.item.tag),
+        g: common_vendor.p({
           type: "calendar",
           size: "20",
           color: "#0077FF"
         }),
-        g: common_vendor.t(__props.item.create_time),
-        h: common_vendor.p({
+        h: common_vendor.t(__props.item.create_time),
+        i: common_vendor.p({
           type: "eye",
           size: "20",
           color: "#0077FF"
         }),
-        i: common_vendor.t(__props.item.browse_count),
-        j: common_vendor.o(handleClickCard)
+        j: common_vendor.t(__props.item.browse_count),
+        k: common_vendor.o(handleClickCard)
       } : {}, {
-        k: __props.item.mode === "mutiple"
+        l: __props.item.mode === "mutiple"
       }, __props.item.mode === "mutiple" ? {
-        l: common_vendor.t(__props.item.title),
-        m: common_vendor.f(__props.item.cover, (it, index, i0) => {
+        m: common_vendor.t(__props.item.title),
+        n: common_vendor.o(($event) => handleStart(__props.item._id)),
+        o: common_vendor.f(__props.item.cover, (it, index, i0) => {
           return {
             a: it,
             b: index
           };
         }),
-        n: common_vendor.t(__props.item.description),
-        o: common_vendor.t(__props.item.tag),
-        p: common_vendor.p({
-          type: "calendar",
-          size: "20",
-          color: "#0077FF"
-        }),
-        q: common_vendor.t(__props.item.create_time),
+        p: common_vendor.t(__props.item.description),
+        q: common_vendor.t(__props.item.tag),
         r: common_vendor.p({
-          type: "eye",
-          size: "20",
-          color: "#0077FF"
-        }),
-        s: common_vendor.t(__props.item.browse_count),
-        t: common_vendor.o(handleClickCard)
-      } : {}, {
-        v: __props.item.mode === "cover"
-      }, __props.item.mode === "cover" ? {
-        w: common_vendor.t(__props.item.title),
-        x: __props.item.cover[0] ? __props.item.cover[0] : "/static/logo.png",
-        y: common_vendor.t(__props.item.description),
-        z: common_vendor.t(__props.item.tag),
-        A: common_vendor.p({
           type: "calendar",
           size: "20",
           color: "#0077FF"
         }),
-        B: common_vendor.t(__props.item.create_time),
-        C: common_vendor.p({
+        s: common_vendor.t(__props.item.create_time),
+        t: common_vendor.p({
           type: "eye",
           size: "20",
           color: "#0077FF"
         }),
-        D: common_vendor.t(__props.item.browse_count),
-        E: common_vendor.o(handleClickCard)
+        v: common_vendor.t(__props.item.browse_count),
+        w: common_vendor.o(handleClickCard)
+      } : {}, {
+        x: __props.item.mode === "cover"
+      }, __props.item.mode === "cover" ? {
+        y: common_vendor.t(__props.item.title),
+        z: common_vendor.o(($event) => handleStart(__props.item._id)),
+        A: __props.item.cover[0] ? __props.item.cover[0] : "/static/logo.png",
+        B: common_vendor.t(__props.item.description),
+        C: common_vendor.t(__props.item.tag),
+        D: common_vendor.p({
+          type: "calendar",
+          size: "20",
+          color: "#0077FF"
+        }),
+        E: common_vendor.t(__props.item.create_time),
+        F: common_vendor.p({
+          type: "eye",
+          size: "20",
+          color: "#0077FF"
+        }),
+        G: common_vendor.t(__props.item.browse_count),
+        H: common_vendor.o(handleClickCard)
       } : {});
     };
   }

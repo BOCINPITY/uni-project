@@ -11,7 +11,7 @@
 			</view>
 			<!-- 表单 -->
 			<view class="login-form">
-				<uni-forms :modelValue="formData" :rules="rules" ref="loginFormRef" validateTrigger="bind">
+				<uni-forms :model="formData" :rules="rules" ref="loginFormRef" validateTrigger="bind">
 					<!-- 账号登录 -->
 					<view v-if="type === 'account'">
 						<uni-forms-item required   label="账号" name="account" class="login-form-item">
@@ -48,12 +48,13 @@
 	import {delay, useTopFit} from '@/utils';
 	import {onReady} from '@dcloudio/uni-app'
 	import { login } from '@/api/user';
-	import store from '@/store';
-	import { mapMutations } from 'vuex'//引入mapMutations
+	import { useUserStore } from '@/store/user';
 	const loginFormRef = ref()
 	const {barHeight} = useTopFit()
 	const type = ref('account')
+	const {updateUserInfo} = useUserStore()
 	const formData = ref({account:'',password:'',phone:'',vcode:''})
+	// 返回应用首页
 	const handleBack = () => {
 		uni.navigateBack()
 	}
@@ -61,7 +62,7 @@
 		const res = await loginFormRef.value.validate()
 		const resp = await login({...res,type:type.value})
 		if(resp){
-			store.commit("userStore/updateUserInfo",resp)
+			updateUserInfo(resp)
 			uni.navigateBack()
 		}
 	}

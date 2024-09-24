@@ -5,7 +5,7 @@
 			<view class="list-card-title">
 				{{item.title}}
 			</view>
-			<Start class="list-card-start"></Start>
+			<Start @clickStart="handleStart(item._id)" class="list-card-start"></Start>
 		</view>
 		<view class="list-card-content">
 			<image class="list-card-image" :src="item.cover[0] ? item.cover[0] : '/static/logo.png'" mode="aspectFill">
@@ -35,7 +35,7 @@
 			<view class="list-card-title">
 				{{item.title}}
 			</view>
-			<Start class="list-card-start"></Start>
+			<Start @clickStart="handleStart(item._id)" class="list-card-start"></Start>
 		</view>
 		<view class="list-card-content">
 			<image class="list-card-image" v-for="(it,index) in item.cover" :src="it" :key="index" mode="aspectFill">
@@ -65,7 +65,7 @@
 			<view class="list-card-title">
 				{{item.title}}
 			</view>
-			<Start class="list-card-start"></Start>
+			<Start @clickStart="handleStart(item._id)" class="list-card-start"></Start>
 		</view>
 		<view class="list-card-content">
 			<image class="list-card-image" :src="item.cover[0] ? item.cover[0] : '/static/logo.png'" mode="aspectFill">
@@ -96,8 +96,12 @@
 	const props = defineProps({
 		item: Object
 	})
+	// console.log(currentUserStartArticleIds)
 	const handleClickCard = async() => {
 		console.log("handleClickCard")
+	}
+	const handleStart  = (id) => {
+		console.log(id)
 	}
 </script>
 

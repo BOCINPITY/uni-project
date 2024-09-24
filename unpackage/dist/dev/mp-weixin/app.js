@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, Symbol.toStringTag, { value: "Module" });
 const common_vendor = require("./common/vendor.js");
-require("./store/index.js");
+const uni_modules_piniaPluginUnistorage_index = require("./uni_modules/pinia-plugin-unistorage/index.js");
 if (!Math) {
   "./pages/index/index.js";
   "./pages/start/start.js";
@@ -22,8 +22,12 @@ const _sfc_main = {
 };
 function createApp() {
   const app = common_vendor.createSSRApp(_sfc_main);
+  const store = common_vendor.createPinia();
+  store.use(uni_modules_piniaPluginUnistorage_index.createUnistorage());
+  app.use(store);
   return {
-    app
+    app,
+    Pinia: common_vendor.Pinia
   };
 }
 createApp().app.mount("#app");
