@@ -19,11 +19,10 @@ const _sfc_main = {
   },
   emits: ["clickStart"],
   setup(__props, { emit: __emit }) {
-    const { info } = common_vendor.storeToRefs(store_user.useUserStore());
+    const { isLogin } = store_user.useUserStore();
     const emits = __emit;
     const handleStart = async () => {
-      if (!info.value)
-        common_vendor.index.navigateTo({ url: "/pages/userinfo/login/login" });
+      await isLogin();
       emits("clickStart");
     };
     return (_ctx, _cache) => {

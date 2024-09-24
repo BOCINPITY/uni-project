@@ -20,7 +20,13 @@ import { userGetCode } from '../../api/user';
 	const counter = ref(TIMEOUT)
 	const getCode = async() => {
 		const {phone,vcode} = props.phoneForm
-		if(!validatePhone(phone) || timer) return
+		if(!validatePhone(phone) || timer) {
+			uni.showToast({
+				icon:"none",
+				title:"请先填写手机号"
+			})
+			return
+		}
 		// 定时器
 		isTimeout.value= false
 		runTime()

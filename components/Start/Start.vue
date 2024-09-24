@@ -15,12 +15,10 @@
 		}
 	})
 	
-	const {info} = storeToRefs(useUserStore())
+	const {isLogin} = useUserStore()
 	const emits = defineEmits(["clickStart"])
 	const handleStart = async() => {
-		if(!info.value)
-		// todo:判断用户是否登录
-		uni.navigateTo({url:"/pages/userinfo/login/login"})
+		await isLogin()
 		emits("clickStart")
 	}
 </script>

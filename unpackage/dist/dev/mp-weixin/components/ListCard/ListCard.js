@@ -1,5 +1,7 @@
 "use strict";
 const common_vendor = require("../../common/vendor.js");
+const api_user = require("../../api/user.js");
+const store_user = require("../../store/user.js");
 if (!Array) {
   const _easycom_Start2 = common_vendor.resolveComponent("Start");
   const _easycom_uni_icons2 = common_vendor.resolveComponent("uni-icons");
@@ -16,11 +18,17 @@ const _sfc_main = {
     item: Object
   },
   setup(__props) {
+    const { startsIds, userId } = common_vendor.storeToRefs(store_user.useUserStore());
+    const isInUserStarts = (id) => {
+      if (startsIds.value) {
+        return startsIds.value.includes(id);
+      }
+    };
     const handleClickCard = async () => {
       console.log("handleClickCard");
     };
     const handleStart = (id) => {
-      console.log(id);
+      api_user.userUpdateStarts(id);
     };
     return (_ctx, _cache) => {
       return common_vendor.e({
@@ -28,69 +36,78 @@ const _sfc_main = {
       }, __props.item.mode === "base" ? {
         b: common_vendor.t(__props.item.title),
         c: common_vendor.o(($event) => handleStart(__props.item._id)),
-        d: __props.item.cover[0] ? __props.item.cover[0] : "/static/logo.png",
-        e: common_vendor.t(__props.item.description),
-        f: common_vendor.t(__props.item.tag),
-        g: common_vendor.p({
+        d: common_vendor.p({
+          heartType: isInUserStarts(__props.item._id) ? "heart-filled" : "heart"
+        }),
+        e: __props.item.cover[0] ? __props.item.cover[0] : "/static/logo.png",
+        f: common_vendor.t(__props.item.description),
+        g: common_vendor.t(__props.item.tag),
+        h: common_vendor.p({
           type: "calendar",
           size: "20",
           color: "#0077FF"
         }),
-        h: common_vendor.t(__props.item.create_time),
-        i: common_vendor.p({
+        i: common_vendor.t(__props.item.create_time),
+        j: common_vendor.p({
           type: "eye",
           size: "20",
           color: "#0077FF"
         }),
-        j: common_vendor.t(__props.item.browse_count),
-        k: common_vendor.o(handleClickCard)
+        k: common_vendor.t(__props.item.browse_count),
+        l: common_vendor.o(handleClickCard)
       } : {}, {
-        l: __props.item.mode === "mutiple"
+        m: __props.item.mode === "mutiple"
       }, __props.item.mode === "mutiple" ? {
-        m: common_vendor.t(__props.item.title),
-        n: common_vendor.o(($event) => handleStart(__props.item._id)),
-        o: common_vendor.f(__props.item.cover, (it, index, i0) => {
+        n: common_vendor.t(__props.item.title),
+        o: common_vendor.o(($event) => handleStart(__props.item._id)),
+        p: common_vendor.p({
+          heartType: isInUserStarts(__props.item._id) ? "heart-filled" : "heart"
+        }),
+        q: common_vendor.f(__props.item.cover, (it, index, i0) => {
           return {
             a: it,
             b: index
           };
         }),
-        p: common_vendor.t(__props.item.description),
-        q: common_vendor.t(__props.item.tag),
-        r: common_vendor.p({
-          type: "calendar",
-          size: "20",
-          color: "#0077FF"
-        }),
-        s: common_vendor.t(__props.item.create_time),
+        r: common_vendor.t(__props.item.description),
+        s: common_vendor.t(__props.item.tag),
         t: common_vendor.p({
-          type: "eye",
-          size: "20",
-          color: "#0077FF"
-        }),
-        v: common_vendor.t(__props.item.browse_count),
-        w: common_vendor.o(handleClickCard)
-      } : {}, {
-        x: __props.item.mode === "cover"
-      }, __props.item.mode === "cover" ? {
-        y: common_vendor.t(__props.item.title),
-        z: common_vendor.o(($event) => handleStart(__props.item._id)),
-        A: __props.item.cover[0] ? __props.item.cover[0] : "/static/logo.png",
-        B: common_vendor.t(__props.item.description),
-        C: common_vendor.t(__props.item.tag),
-        D: common_vendor.p({
           type: "calendar",
           size: "20",
           color: "#0077FF"
         }),
-        E: common_vendor.t(__props.item.create_time),
-        F: common_vendor.p({
+        v: common_vendor.t(__props.item.create_time),
+        w: common_vendor.p({
           type: "eye",
           size: "20",
           color: "#0077FF"
         }),
-        G: common_vendor.t(__props.item.browse_count),
-        H: common_vendor.o(handleClickCard)
+        x: common_vendor.t(__props.item.browse_count),
+        y: common_vendor.o(handleClickCard)
+      } : {}, {
+        z: __props.item.mode === "cover"
+      }, __props.item.mode === "cover" ? {
+        A: common_vendor.t(__props.item.title),
+        B: common_vendor.o(($event) => handleStart(__props.item._id)),
+        C: common_vendor.p({
+          heartType: isInUserStarts(__props.item._id) ? "heart-filled" : "heart"
+        }),
+        D: __props.item.cover[0] ? __props.item.cover[0] : "/static/logo.png",
+        E: common_vendor.t(__props.item.description),
+        F: common_vendor.t(__props.item.tag),
+        G: common_vendor.p({
+          type: "calendar",
+          size: "20",
+          color: "#0077FF"
+        }),
+        H: common_vendor.t(__props.item.create_time),
+        I: common_vendor.p({
+          type: "eye",
+          size: "20",
+          color: "#0077FF"
+        }),
+        J: common_vendor.t(__props.item.browse_count),
+        K: common_vendor.o(handleClickCard)
       } : {});
     };
   }

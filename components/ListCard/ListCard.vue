@@ -5,7 +5,7 @@
 			<view class="list-card-title">
 				{{item.title}}
 			</view>
-			<Start @clickStart="handleStart(item._id)" class="list-card-start"></Start>
+			<Start @clickStart="handleStart(item._id)" class="list-card-start" :heartType="isInUserStarts(item._id) ? 'heart-filled' : 'heart'"></Start>
 		</view>
 		<view class="list-card-content">
 			<image class="list-card-image" :src="item.cover[0] ? item.cover[0] : '/static/logo.png'" mode="aspectFill">
@@ -19,13 +19,12 @@
 				{{item.tag}}
 			</view>
 			<view class="list-card-publish-time">
-				<uni-icons type="calendar" size="20" color="#0077FF"></uni-icons>
+				<uni-icons style="padding: 0 10rpx;" type="calendar" size="20" color="#0077FF"></uni-icons>
 				<view class="publish-time">发布时间：{{item.create_time}}</view>
 			</view>
 			<view class="list-card-browse-count">
-				<uni-icons type="eye" size="20" color="#0077FF"></uni-icons>
+				<uni-icons style="padding: 0 10rpx;" type="eye" size="20" color="#0077FF"></uni-icons>
 				<view class="borws-count"> {{item.browse_count}}浏览</view>
-
 			</view>
 		</view>
 	</view>
@@ -35,7 +34,7 @@
 			<view class="list-card-title">
 				{{item.title}}
 			</view>
-			<Start @clickStart="handleStart(item._id)" class="list-card-start"></Start>
+			<Start @clickStart="handleStart(item._id)" class="list-card-start" :heartType="isInUserStarts(item._id) ? 'heart-filled' : 'heart'"></Start>
 		</view>
 		<view class="list-card-content">
 			<image class="list-card-image" v-for="(it,index) in item.cover" :src="it" :key="index" mode="aspectFill">
@@ -49,13 +48,12 @@
 				{{item.tag}}
 			</view>
 			<view class="list-card-publish-time">
-				<uni-icons type="calendar" size="20" color="#0077FF"></uni-icons>
+				<uni-icons style="padding: 0 10rpx;" type="calendar" size="20" color="#0077FF"></uni-icons>
 				<view class="publish-time">发布时间：{{item.create_time}}</view>
 			</view>
 			<view class="list-card-browse-count">
-				<uni-icons type="eye" size="20" color="#0077FF"></uni-icons>
+				<uni-icons style="padding: 0 10rpx;" type="eye" size="20" color="#0077FF"></uni-icons>
 				<view class="borws-count"> {{item.browse_count}}浏览</view>
-	
 			</view>
 		</view>
 	</view>
@@ -65,7 +63,7 @@
 			<view class="list-card-title">
 				{{item.title}}
 			</view>
-			<Start @clickStart="handleStart(item._id)" class="list-card-start"></Start>
+			<Start @clickStart="handleStart(item._id)" class="list-card-start" :heartType="isInUserStarts(item._id) ? 'heart-filled' : 'heart'"></Start>
 		</view>
 		<view class="list-card-content">
 			<image class="list-card-image" :src="item.cover[0] ? item.cover[0] : '/static/logo.png'" mode="aspectFill">
@@ -80,28 +78,36 @@
 				{{item.tag}}
 			</view>
 			<view class="list-card-publish-time">
-				<uni-icons type="calendar" size="20" color="#0077FF"></uni-icons>
+				<uni-icons style="padding: 0 10rpx;" type="calendar" size="20" color="#0077FF"></uni-icons>
 				<view class="publish-time">发布时间：{{item.create_time}}</view>
 			</view>
 			<view class="list-card-browse-count">
-				<uni-icons type="eye" size="20" color="#0077FF"></uni-icons>
+				<uni-icons style="padding: 0 10rpx;" type="eye" size="20" color="#0077FF"></uni-icons>
 				<view class="borws-count"> {{item.browse_count}}浏览</view>
-
 			</view>
 		</view>
 	</view>
 </template>
 
 <script setup>
+	import { userUpdateStarts } from '../../api/user';
+	import { useUserStore } from '../../store/user';
+	import {storeToRefs} from "pinia"
+	const {startsIds,userId} = storeToRefs(useUserStore())
 	const props = defineProps({
 		item: Object
 	})
-	// console.log(currentUserStartArticleIds)
+	const isInUserStarts = (id) => {
+		if(startsIds.value){
+			return startsIds.value.includes(id)
+		}
+	}
 	const handleClickCard = async() => {
 		console.log("handleClickCard")
 	}
+
 	const handleStart  = (id) => {
-		console.log(id)
+		userUpdateStarts(id)
 	}
 </script>
 

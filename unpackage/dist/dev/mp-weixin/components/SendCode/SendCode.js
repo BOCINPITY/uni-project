@@ -1,6 +1,7 @@
 "use strict";
 const common_vendor = require("../../common/vendor.js");
 const verifyRules_login_index = require("../../verifyRules/login/index.js");
+require("../../api/user.js");
 const MS_1 = 1e3;
 const TIMEOUT = 120;
 const _sfc_main = {
@@ -15,8 +16,13 @@ const _sfc_main = {
     const counter = common_vendor.ref(TIMEOUT);
     const getCode = async () => {
       const { phone, vcode } = props.phoneForm;
-      if (!verifyRules_login_index.validatePhone(phone) || timer)
+      if (!verifyRules_login_index.validatePhone(phone) || timer) {
+        common_vendor.index.showToast({
+          icon: "none",
+          title: "请先填写手机号"
+        });
         return;
+      }
       isTimeout.value = false;
       runTime();
     };

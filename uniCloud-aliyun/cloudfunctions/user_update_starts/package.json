@@ -1,0 +1,7 @@
+{
+  "name": "user_update_starts",
+  "dependencies": {},
+  "extensions": {
+    "uni-cloud-jql": {}
+  }
+}
