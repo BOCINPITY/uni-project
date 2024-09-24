@@ -1,8 +1,44 @@
 "use strict";
 const common_vendor = require("../../common/vendor.js");
-const _sfc_main = {};
-function _sfc_render(_ctx, _cache) {
-  return {};
-}
-const Component = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["render", _sfc_render], ["__scopeId", "data-v-969c3c07"]]);
+const verifyRules_login_index = require("../../verifyRules/login/index.js");
+const MS_1 = 1e3;
+const TIMEOUT = 120;
+const _sfc_main = {
+  __name: "SendCode",
+  props: {
+    phoneForm: Object
+  },
+  setup(__props) {
+    const isTimeout = common_vendor.ref(true);
+    const props = __props;
+    let timer = null;
+    const counter = common_vendor.ref(TIMEOUT);
+    const getCode = async () => {
+      const { phone, vcode } = props.phoneForm;
+      if (!verifyRules_login_index.validatePhone(phone) || timer)
+        return;
+      isTimeout.value = false;
+      runTime();
+    };
+    const runTime = () => {
+      timer = setInterval(() => {
+        if (counter.value === 1) {
+          clearInterval(timer);
+          timer = null;
+          isTimeout.value = true;
+          counter.value = TIMEOUT;
+          return;
+        }
+        counter.value--;
+      }, MS_1);
+    };
+    return (_ctx, _cache) => {
+      return {
+        a: common_vendor.t(isTimeout.value ? "获取验证码" : counter.value + "s"),
+        b: common_vendor.o(getCode)
+      };
+    };
+  }
+};
+const Component = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__scopeId", "data-v-969c3c07"]]);
 wx.createComponent(Component);

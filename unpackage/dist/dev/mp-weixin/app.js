@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, Symbol.toStringTag, { value: "Module" });
 const common_vendor = require("./common/vendor.js");
+require("./store/index.js");
 if (!Math) {
   "./pages/index/index.js";
   "./pages/start/start.js";

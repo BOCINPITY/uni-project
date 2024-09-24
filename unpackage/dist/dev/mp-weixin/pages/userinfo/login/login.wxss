@@ -48,6 +48,7 @@
   padding: 0 5px;
 }
 .login-container .login-header .header-content .info.data-v-47d7a160 {
+  font-size: 20px;
   flex: 1;
   color: white;
   display: flex;
@@ -95,6 +96,7 @@
   background-color: white;
 }
 .login-container .login-content .login-form .login-btn.data-v-47d7a160 {
+  margin-top: 12px;
   background-color: #0077ff;
   width: 300rpx;
   color: white;
@@ -118,17 +120,17 @@
 }
 .data-v-47d7a160 .uni-forms-item__label {
   color: black;
-  font-size: 16px;
 }
 .vcode.data-v-47d7a160 {
   position: absolute;
   right: 0;
   top: 50%;
-  transform: translate(20%, -50%);
+  transform: translate(110%, -50%);
 }
 .login-form-item.data-v-47d7a160 {
   position: relative;
   margin: 0 15px;
+  margin-right: 90px;
   padding: 12px;
 }
 .login-form-item .form-input.data-v-47d7a160 {
@@ -139,20 +141,8 @@
   flex-wrap: nowarp;
   flex-direction: column;
 }
-.login-form-item .form-input .placeholder.data-v-47d7a160 {
-  flex: 1;
-  align-items: center;
-  color: #808080;
-}
 .data-v-47d7a160 .uni-forms-item {
-  position: relative;
   margin: 0 15px;
+  margin-right: 90px;
   padding: 12px;
-}
-.data-v-47d7a160 .uni-forms-item input {
-  background-color: #f8f8f8;
-  padding: 0 15px;
-  border-radius: 8px;
-  height: 100%;
-  width: 300rpx;
 }

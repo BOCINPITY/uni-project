@@ -1,31 +1,20 @@
 "use strict";
 const common_vendor = require("../../common/vendor.js");
-const utils_index = require("../../utils/index.js");
+const _sfc_main = {};
 if (!Array) {
-  const _easycom_uni_icons2 = common_vendor.resolveComponent("uni-icons");
-  _easycom_uni_icons2();
+  const _easycom_PageHeader2 = common_vendor.resolveComponent("PageHeader");
+  _easycom_PageHeader2();
 }
-const _easycom_uni_icons = () => "../../uni_modules/uni-icons/components/uni-icons/uni-icons.js";
+const _easycom_PageHeader = () => "../../components/PageHeader/PageHeader.js";
 if (!Math) {
-  _easycom_uni_icons();
+  _easycom_PageHeader();
 }
-const _sfc_main = {
-  __name: "search",
-  setup(__props) {
-    const { barHeight } = utils_index.useTopFit();
-    const handleBack = () => {
-      common_vendor.index.navigateBack();
-    };
-    return (_ctx, _cache) => {
-      return {
-        a: common_vendor.unref(barHeight) + "rpx",
-        b: common_vendor.o(handleBack),
-        c: common_vendor.p({
-          type: "left",
-          color: "#FFFFFF"
-        })
-      };
-    };
-  }
-};
-wx.createPage(_sfc_main);
+function _sfc_render(_ctx, _cache) {
+  return {
+    a: common_vendor.p({
+      info: "搜索"
+    })
+  };
+}
+const MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["render", _sfc_render]]);
+wx.createPage(MiniProgramPage);

@@ -1,8 +1,8 @@
 <template>
 	<view class="login-container">
-		<PageHeader info="用户登录"></PageHeader>
+		<PageHeader style="width: 100%;" info="用户登录"></PageHeader>
 		<view class="login-bg">
-			<image src="../../../static/login_bg.png" mode="aspectFit"></image>
+			<image src="@/static/login_bg.png" mode="aspectFit"></image>
 		</view>
 		<view class="login-content">
 			<view class="login-tab">
@@ -28,7 +28,7 @@
 						</uni-forms-item>
 						<uni-forms-item required  label="验证码" name="vcode" class="login-form-item">
 							<uni-easyinput  class="form-input"  type="text" v-model="formData.vcode" placeholder="请输入验证码"  trim="all"/>
-							<SendCode class="vcode"></SendCode>
+							<SendCode :phoneForm="formData" class="vcode"></SendCode>
 						</uni-forms-item>
 					</view>
 					<button class="login-btn" @click="handleLogin">马上登录</button>
@@ -39,24 +39,21 @@
 			<text class="login-footer-item">注册</text>
 			<text class="login-footer-item">忘记密码</text>
 		</view>
-		<button type="primary" @click="ADD">{{useCountStore.state.count}}</button>
 	</view>
 </template>
 
 <script setup>
-	import { rules } from '../../../verifyRules/login';
+	import { rules } from '@/verifyRules/login';
 	import { computed, ref } from 'vue';
-	import {useTopFit} from '../../../utils';
+	import {delay, useTopFit} from '@/utils';
 	import {onReady} from '@dcloudio/uni-app'
-	import { login } from '../../../api/user';
-	import { useCountStore } from '../../../store';
+	import { login } from '@/api/user';
+	import store from '@/store';
+	import { mapMutations } from 'vuex'//引入mapMutations
 	const loginFormRef = ref()
 	const {barHeight} = useTopFit()
 	const type = ref('account')
 	const formData = ref({account:'',password:'',phone:'',vcode:''})
-	const ADD = () => {
-		useCountStore.commit("increment")
-	}
 	const handleBack = () => {
 		uni.navigateBack()
 	}
@@ -64,6 +61,7 @@
 		const res = await loginFormRef.value.validate()
 		const resp = await login({...res,type:type.value})
 		if(resp){
+			store.commit("userStore/updateUserInfo",resp)
 			uni.navigateBack()
 		}
 	}

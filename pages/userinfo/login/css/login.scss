@@ -91,3 +91,8 @@
 			@include flex(center,column);
 		}
 	}
+:deep(.uni-forms-item){
+	margin: 0 $uni-spacing-row-lg;
+	margin-right: $uni-spacing-row-lg * 6;
+	padding: $uni-spacing-col-lg;
+}

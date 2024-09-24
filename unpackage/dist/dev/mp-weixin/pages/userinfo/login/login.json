@@ -1,7 +1,8 @@
 {
   "navigationStyle": "custom",
   "usingComponents": {
-    "uni-icons": "../../../uni_modules/uni-icons/components/uni-icons/uni-icons",
+    "page-header": "../../../components/PageHeader/PageHeader",
+    "uni-easyinput": "../../../uni_modules/uni-easyinput/components/uni-easyinput/uni-easyinput",
     "uni-forms-item": "../../../uni_modules/uni-forms/components/uni-forms-item/uni-forms-item",
     "send-code": "../../../components/SendCode/SendCode",
     "uni-forms": "../../../uni_modules/uni-forms/components/uni-forms/uni-forms"

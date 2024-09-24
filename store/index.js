@@ -1,45 +1,12 @@
-import { createStore } from 'vuex'
+// 页面路径：store/index.js
+import {createStore} from 'vuex'
+import userStore from './modules/userStore'
+import articleStore from './modules/articleStore'
 
 
-const state = {
-  count: 0
-}
-
-
-const mutations = {
-  increment (state) {
-    state.count++
-  },
-  decrement (state) {
-    state.count--
-  }
-}
-
-const actions = {
-  increment: ({ commit }) => commit('increment'),
-  decrement: ({ commit }) => commit('decrement'),
-  incrementIfOdd ({ commit, state }) {
-    if ((state.count + 1) % 2 === 0) {
-      commit('increment')
-    }
-  },
-  incrementAsync ({ commit }) {
-    return new Promise((resolve, reject) => {
-      setTimeout(() => {
-        commit('increment')
-        resolve()
-      }, 1000)
-    })
-  }
-}
-
-const getters = {
-  evenOrOdd: state => state.count % 2 === 0 ? 'even' : 'odd'
-}
-
-export const useCountStore =  createStore({
-  state,
-  getters,
-  actions,
-  mutations
+export default createStore({
+	modules: {
+		userStore,
+		articleStore
+	}
 })

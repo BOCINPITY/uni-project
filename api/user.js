@@ -14,3 +14,11 @@ export async function login(userinfo = {}) {
 	}
 	return  result.msg
 }
+
+export async function userGetCode(phone){
+	uni.showToast({icon:"none"})
+	const {result} = await uniCloud.callFunction({
+		name:"user_get_code",
+		data:phone
+	})
+}

@@ -2,6 +2,12 @@ import {
 	reactive
 } from 'vue';
 
+export function validatePhone(text) {
+	const phoneRegex = /^1[3-9]\d{9}$/;
+	return phoneRegex.test(text)
+}
+
+
 export const rules = reactive({
 	account: {
 		rules: [{
@@ -35,9 +41,12 @@ export const rules = reactive({
 				errorMessage: '请填写手机号',
 			},
 			{
-				fomat: 'number',
-				pattern: '/^1[34578]\d{10}$/',
-				errorMessage: '请输入正确的手机号',
+				validateFunction: function(rule, value, data, callback) {
+					if (!validatePhone(value)) {
+						callback('请输入正确的手机号')
+					}
+					return true
+				}
 			}
 		],
 		label: '手机号',
