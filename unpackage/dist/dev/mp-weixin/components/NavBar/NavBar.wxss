@@ -23,7 +23,7 @@
 /* 垂直间距 */
 /* 透明度 */
 /* 文章场景相关 */
-.nav-bar .nav-bar-top {
+.nav-bar .nav-bar-top.data-v-9367190c {
   position: absolute;
   top: 0;
   left: 0;
@@ -33,7 +33,7 @@
   padding: 0 30rpx 20rpx;
   box-sizing: border-box;
 }
-.nav-bar .nav-bar-top .nav-bar-content {
+.nav-bar .nav-bar-top .nav-bar-content.data-v-9367190c {
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -46,9 +46,23 @@
   padding-left: 20rpx;
   box-sizing: border-box;
 }
-.nav-bar .nav-bar-top .nav-bar-content .nav-bar-search-text {
+.nav-bar .nav-bar-top .nav-bar-content .nav-bar-search-text.data-v-9367190c {
   font-size: 28rpx;
   width: 100%;
   margin-left: 20rpx;
   color: #999;
+}
+.nav-bar .nav-bar-top .nav-bar-content .search-input.data-v-9367190c {
+  font-size: 14px;
+  text-indent: 1em;
+}
+.nav-bar .return-icon.data-v-9367190c {
+  position: absolute;
+  height: 60rpx;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: nowarp;
+  flex-direction: row;
 }

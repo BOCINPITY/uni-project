@@ -11,7 +11,7 @@
 </template>
 
 <script setup>
-	import { useTopFit } from '../../utils';
+	import { useTopFit } from '@/utils';
 	const {barHeight} = useTopFit()
 	const handleBack = () => {
 		uni.navigateBack()

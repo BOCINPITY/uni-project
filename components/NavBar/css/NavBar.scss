@@ -22,6 +22,17 @@
 				margin-left: 20rpx;
 				color: $uni-text-color-grey;
 			}
+			.search-input{
+				font-size: $uni-font-size-base;
+				// color: $uni-bg-color-grey;
+				text-indent: 1em;
+			}
 		}
+	}
+	.return-icon{
+		position: absolute;
+		height: 60rpx;
+		left: 0;
+		@include flex(center);
 	}
 }
