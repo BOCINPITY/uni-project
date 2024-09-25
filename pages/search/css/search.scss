@@ -4,12 +4,9 @@ page{
 }
 .search-container{
 	flex: 1;
-	height: 100%;
-
 	display: flex;
 	flex-direction: column;
 	.search-wapper{
-		flex:1;
 		.search-history-container{
 			background-color: $uni-bg-color-grey;
 			.search-header{
@@ -23,22 +20,27 @@ page{
 					color: $uni-color-error;
 				}
 			}
-			.search-content{
-				@include flex(flex-start,row,wrap);
-				padding: $uni-spacing-row-lg;
-				.history-item{
-					color: $uni-color-primary;
-					padding: $uni-spacing-row-sm $uni-spacing-row-base;
-					margin:$uni-spacing-row-base;
-					border: 1px solid $uni-color-primary;
-					border-radius: $uni-border-radius-base;
-				}
+		}
+	}
+	.search-list-container{
+		height: 100%;
+		flex:1;
+		overflow: auto;
+		.search-content{
+			@include flex(center,row,wrap);
+			padding: $uni-spacing-row-lg;
+			.history-item{
+				color: $uni-color-primary;
+				padding: $uni-spacing-row-sm $uni-spacing-row-base;
+				margin:$uni-spacing-row-base;
+				border: 1px solid $uni-color-primary;
+				border-radius: $uni-border-radius-base;
 			}
-			.no-data{
-				@include flex(center,column);
-				color: #CCC;
-				height: 400rpx;
-			}
+		}
+		.no-data{
+			@include flex(center,column);
+			color: #CCC;
+			height: 400rpx;
 		}
 	}
 }

@@ -12,8 +12,7 @@
 				<view v-if="!isSearch" class="nav-bar-search-text">
 					输入文章标题进行搜索
 				</view>
-
-				<input v-else class="search-input" type="text" placeholder="输入文章标题进行搜索" />
+				<input v-else v-model.trim="searchData" @confirm="inputDone" confirm-type="search" class="search-input" type="text" placeholder="输入文章标题进行搜索" />
 				</view>
 		</view>
 		<view :style="{height:barHeight + 80 + 'rpx'}">
@@ -29,10 +28,18 @@
 		isSearch:{
 			type:Boolean,
 			default:false
+		},
+		parentValue:{
+			type:String,
+			default:""
 		}
 	})
+	const emits = defineEmits(['childInputDone'])
 	const searchData = ref('')
-	console.log(props.isSearch)
+	// 由于props是只读的，所以不能绑定到input上，所以数据双向绑定的时候得这样处理
+	const inputDone = () =>{
+		emits("childInputDone",searchData.value)
+	}
 	const {barHeight,marginRight} = useTopFit()
 	const handleSearch = () => {
 		if(props.isSearch) return

@@ -19,7 +19,10 @@
 			type:Array,
 			default:() => []
 		},
-		loadStatus:String
+		loadStatus:{
+			type:String,
+			default:"no-more"
+		}
 	})
 	const emits = defineEmits(["loadMore"])
 	const loadMore = () => {
