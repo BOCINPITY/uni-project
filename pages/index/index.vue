@@ -8,17 +8,24 @@
 </template>
 
 <script setup>
-	import {onBeforeMount,reactive,ref} from 'vue';
-	import { getLabelList } from '../../api/label';
+	import {onBeforeMount,reactive,ref, toRaw} from 'vue';
+	import { getLabelList } from '@/api/label';
+	import { useUserStore } from '@/store/user';
+	import {cloneDeep} from 'lodash'
+	const {updateUserPreferenceSet,updateLabelList} = useUserStore()
+	const {userPreferenceSet} = useUserStore()
 	const tabBar = ref([])
 	const activeIndex = ref(0)
 	const classify = ref("全部")
 	onBeforeMount(async () => {
 		tabBar.value = await getLabelList()
+		const tabBarBak = cloneDeep(tabBar.value)
+		updateLabelList(tabBarBak)
+		updateUserPreferenceSet(toRaw(tabBar.value))
 	})
 	const indexChange = (index) => {
 		activeIndex.value = index
-		const res = tabBar.value.find(item => index === +item.type)
+		const res = tabBar.value[index]
 		classify.value = res.description
 	}
 </script>

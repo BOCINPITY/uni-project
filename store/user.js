@@ -4,7 +4,9 @@ export const useUserStore = defineStore('user', {
 	unistorage:true,
 	state: () => ({
 		info:null,
-		searchHistoryList:[]
+		searchHistoryList:[],
+		userPreferenceSet:[],
+		labelList:[],
 	}),
 	getters:{
 		startsIds:(state) => (state.info?.article_starts_ids || []),
@@ -13,6 +15,20 @@ export const useUserStore = defineStore('user', {
 	actions:{
 		updateUserInfo(info){
 			this.info = info
+		},
+		updateLabelList(labels){
+			this.labelList = labels
+		},
+		updateUserPreferenceSet(preferenceSet){
+			this.userPreferenceSet = preferenceSet
+		},
+		popUserPreferenceSet(id){
+			const index = this.userPreferenceSet.findIndex(item => item._id === id)
+			this.userPreferenceSet.splice(index,1)
+		},
+		pushUserPreferenceSet(id){
+			const item = this.labelList.find(item => item._id === id)
+			this.userPreferenceSet.push(item)
 		},
 		updateUserSearchHistoryList(value){
 			if(this.searchHistoryList.includes(value)) return

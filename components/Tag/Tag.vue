@@ -1,7 +1,7 @@
 <template>
 	<view class="tag-container">
 		<view class="info">
-			{{info}}
+			{{labelItem.description}}
 		</view>
 		<view class="operation-icon" v-if="isShowClose" @click="handleClickClose">
 			<uni-icons type="clear"  color="red" size="23"></uni-icons>
@@ -14,9 +14,9 @@
 
 <script setup>
 const props = defineProps({
-	info:{
-		type:String,
-		default:"默认值"
+	labelItem:{
+		type:Object,
+		require:true
 	},
 	isShowClose:{
 		type:Boolean,
@@ -29,10 +29,10 @@ const props = defineProps({
 })
 const emits = defineEmits(["close","add"])
 const handleClickClose = () => {
-	emits("close")
+	emits("close",props.labelItem._id)
 }
 const handleClickAdd = () => {
-	emits("add")
+	emits("add",props.labelItem._id)
 }
 
 </script>
