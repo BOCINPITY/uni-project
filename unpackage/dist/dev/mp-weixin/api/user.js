@@ -3,7 +3,7 @@ const common_vendor = require("../common/vendor.js");
 const store_user = require("../store/user.js");
 async function login(userinfo = {}) {
   common_vendor.index.showToast({ icon: "loading", message: "登录中..." });
-  const { result } = await common_vendor.Vs.callFunction({
+  const { result } = await common_vendor.Ys.callFunction({
     name: "user_login",
     data: {
       ...userinfo
@@ -22,7 +22,7 @@ async function userUpdateStarts(id) {
   common_vendor.index.showToast({
     icon: "loading"
   });
-  const { result } = await common_vendor.Vs.callFunction({
+  const { result } = await common_vendor.Ys.callFunction({
     name: "user_update_starts",
     data: {
       articleId: id,

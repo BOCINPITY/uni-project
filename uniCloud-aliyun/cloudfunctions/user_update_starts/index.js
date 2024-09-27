@@ -1,7 +1,4 @@
 'use strict';
-
-const { STATUS_CODES } = require("../Message");
-
 const db = uniCloud.database()
 
 const dbCmd = db.command
@@ -23,7 +20,7 @@ exports.main = async (event, context) => {
 	const res = await db.collection('user').doc(userId).get();
 	//返回数据给客户端
 	return {
-		code:STATUS_CODES.SUCCESS,
+		code:200,
 		data:{
 			msg:msg,
 			newUserInfo:res.data[0]

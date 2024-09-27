@@ -7,6 +7,7 @@ export async function getArticleList(classify = "全部", pageSize = 10, current
 			classify
 		}
 	})
+	console.log(result)
 	return {
 		list:result.res.list,
 		total:result.res.total

@@ -12,7 +12,7 @@
 				<view v-if="!isSearch" class="nav-bar-search-text">
 					输入文章标题进行搜索
 				</view>
-				<input v-else v-model.trim="searchData" @confirm="inputDone" confirm-type="search" class="search-input" type="text" placeholder="输入文章标题进行搜索" />
+				<input v-else v-model.trim="searchData" @input="textInput" @confirm="inputDone" confirm-type="search" class="search-input" type="text" placeholder="输入文章标题进行搜索" />
 				</view>
 		</view>
 		<view :style="{height:barHeight + 80 + 'rpx'}">
@@ -22,8 +22,8 @@
 </template>
 
 <script setup>
-	import { ref } from 'vue';
-	import { useTopFit } from '@/utils';
+	import { computed, ref } from 'vue';
+	import { debounce, useTopFit } from '@/utils';
 	const props = defineProps({
 		isSearch:{
 			type:Boolean,
@@ -35,7 +35,10 @@
 		}
 	})
 	const emits = defineEmits(['childInputDone'])
-	const searchData = ref('')
+	const searchData = computed({
+		get: () => props.parentValue,
+		set:() => props.parentValue,
+	})
 	// 由于props是只读的，所以不能绑定到input上，所以数据双向绑定的时候得这样处理
 	const inputDone = () =>{
 		emits("childInputDone",searchData.value)
@@ -47,6 +50,11 @@
 			url:"/pages/search/search",
 		})
 	}
+	
+	const textInput = debounce(({detail}) => {
+		if(detail.value === "") emits("childInputDone","")
+		emits("childInputDone",detail.value)
+	},1000)
 	const handleBack = () => {
 		// #ifdef H5
 			uni.switchTab({

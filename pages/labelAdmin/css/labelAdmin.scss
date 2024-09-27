@@ -1,0 +1,32 @@
+page{
+	height: 100%;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+}
+.label-admin-container{
+	flex: 1;
+	.label-admin-recoment{
+		margin-top: $uni-spacing-col-lg;
+	}
+}
+.block-header{
+	margin: 0 $uni-spacing-col-lg;
+	padding: $uni-spacing-col-lg  0;
+	border-bottom: 1px solid #CCC;
+	@include flex();
+	.edit-txt{
+		color: $uni-color-primary;
+	}
+}
+.tag-content{
+	@include flex(flex-start,row,wrap);
+	.tag{
+		margin: $uni-spacing-col-lg;
+
+
+	}
+}
+.label-admin-block{
+	background-color: $uni-bg-color-grey;
+}

@@ -9,17 +9,16 @@
 				</view>
 			</view>
 		</scroll-view>
-		<view class="tab-icons">
-			<uni-icons type="gear" size="26" color="#666"></uni-icons>
+		<view class="tab-icons" @click="clickLabelAdmin">
+			<uni-icons type="gear" size="30" color="#666"></uni-icons>
 		</view>
 	</view>
 </template>
 
 <script setup>
-	import {
-		ref
-	} from 'vue';
-
+	import {ref } from 'vue';
+	import { useUserStore } from '@/store/user';
+	const {isLogin} = useUserStore()
 	const  props = defineProps({
 		activeIndex:Number,
 		labelList:Array
@@ -27,6 +26,10 @@
 	const emit = defineEmits(['activeIndexchange'])
 	const handleTabItemClick = (index) => {
 		emit('activeIndexchange',index)
+	}
+	const clickLabelAdmin = async () => {
+		await isLogin()
+		uni.navigateTo({url:"/pages/labelAdmin/labelAdmin"})
 	}
 </script>
 

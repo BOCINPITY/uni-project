@@ -3,7 +3,8 @@ const common_vendor = require("../common/vendor.js");
 const useUserStore = common_vendor.defineStore("user", {
   unistorage: true,
   state: () => ({
-    info: null
+    info: null,
+    searchHistoryList: []
   }),
   getters: {
     startsIds: (state) => {
@@ -18,6 +19,14 @@ const useUserStore = common_vendor.defineStore("user", {
   actions: {
     updateUserInfo(info) {
       this.info = info;
+    },
+    updateUserSearchHistoryList(value) {
+      if (this.searchHistoryList.includes(value))
+        return;
+      this.searchHistoryList.push(value);
+    },
+    clearUserSearchHistoryList() {
+      this.searchHistoryList = [];
     },
     async isLogin() {
       return new Promise((resolve, reject) => {

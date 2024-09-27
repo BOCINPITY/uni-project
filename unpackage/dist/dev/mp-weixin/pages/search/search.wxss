@@ -29,12 +29,8 @@ page {
 }
 .search-container {
   flex: 1;
-  height: 100%;
   display: flex;
   flex-direction: column;
-}
-.search-container .search-wapper {
-  flex: 1;
 }
 .search-container .search-wapper .search-history-container {
   background-color: #f8f8f8;
@@ -54,22 +50,41 @@ page {
 .search-container .search-wapper .search-history-container .search-header .clear-history {
   color: #dd524d;
 }
-.search-container .search-wapper .search-history-container .search-content {
+.search-container .search-wapper .search-history-container .search-history-content {
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: flex-start;
   flex-wrap: wrap;
   flex-direction: row;
+}
+.search-container .search-wapper .search-history-container .search-history-content .history-tag-item {
+  padding: 5px 10px;
+  margin: 8px;
+  border: 1px solid #0077ff;
+  border-radius: 8px;
+}
+.search-container .search-list-container {
+  height: 100%;
+  flex: 1;
+  overflow: auto;
+}
+.search-container .search-list-container .search-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  flex-direction: row;
   padding: 15px;
 }
-.search-container .search-wapper .search-history-container .search-content .history-item {
+.search-container .search-list-container .search-content .history-item {
   color: #0077ff;
   padding: 5px 10px;
   margin: 10px;
   border: 1px solid #0077ff;
   border-radius: 8px;
 }
-.search-container .search-wapper .search-history-container .no-data {
+.search-container .search-list-container .no-data {
   display: flex;
   align-items: center;
   justify-content: center;

@@ -16,7 +16,7 @@ exports.main = async (event, context) => {
 	//返回数据给客户端
 	return {
 		code: 200,
-		msg: "success",
+		msg: "文章列表请求成功",
 		res: {
 			list: data,
 			total: amount.total

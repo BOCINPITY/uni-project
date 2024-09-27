@@ -25,8 +25,8 @@ export async function userGetCode(phone){
 	})
 }
 // 更新用户收藏的文章列表
-const {userId,updateUserInfo} = useUserStore()
 export async function userUpdateStarts(id){
+	const {userId,updateUserInfo} = useUserStore()
 	uni.showToast({
 		icon:"loading"
 	})

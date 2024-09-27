@@ -15,12 +15,23 @@ const _sfc_main = {
     isSearch: {
       type: Boolean,
       default: false
+    },
+    parentValue: {
+      type: String,
+      default: ""
     }
   },
-  setup(__props) {
+  emits: ["childInputDone"],
+  setup(__props, { emit: __emit }) {
     const props = __props;
-    common_vendor.ref("");
-    console.log(props.isSearch);
+    const emits = __emit;
+    const searchData = common_vendor.computed({
+      get: () => props.parentValue,
+      set: (val) => searchData.value = "尼玛"
+    });
+    const inputDone = () => {
+      emits("childInputDone", searchData.value);
+    };
     const { barHeight, marginRight } = utils_index.useTopFit();
     const handleSearch = () => {
       if (props.isSearch)
@@ -29,6 +40,11 @@ const _sfc_main = {
         url: "/pages/search/search"
       });
     };
+    const textInput = utils_index.debounce(({ detail }) => {
+      if (detail.value === "")
+        emits("childInputDone", "");
+      emits("childInputDone", detail.value);
+    }, 1e3);
     const handleBack = () => {
       common_vendor.index.navigateBack();
     };
@@ -48,11 +64,17 @@ const _sfc_main = {
           type: "search"
         }),
         f: !__props.isSearch
-      }, !__props.isSearch ? {} : {}, {
-        g: common_vendor.unref(marginRight) + "rpx",
-        h: __props.isSearch ? "20rpx" : "",
-        i: common_vendor.o(handleSearch),
-        j: common_vendor.unref(barHeight) + 80 + "rpx"
+      }, !__props.isSearch ? {} : {
+        g: common_vendor.o([common_vendor.m(($event) => searchData.value = $event.detail.value, {
+          trim: true
+        }), (...args) => common_vendor.unref(textInput) && common_vendor.unref(textInput)(...args)]),
+        h: common_vendor.o(inputDone),
+        i: searchData.value
+      }, {
+        j: common_vendor.unref(marginRight) + "rpx",
+        k: __props.isSearch ? "20rpx" : "",
+        l: common_vendor.o(handleSearch),
+        m: common_vendor.unref(barHeight) + 80 + "rpx"
       });
     };
   }

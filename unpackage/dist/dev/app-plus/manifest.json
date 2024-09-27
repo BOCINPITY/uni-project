@@ -87,7 +87,7 @@
     "uni-app": {
       "control": "uni-v3",
       "vueVersion": "3",
-      "compilerVersion": "4.24",
+      "compilerVersion": "4.28",
       "nvueCompiler": "uni-app",
       "renderer": "auto",
       "nvue": {
@@ -108,7 +108,6 @@
       "iconWidth": "24px",
       "spacing": "3px",
       "height": "50px",
-      "backgroundColor": "#FFFFFF",
       "list": [
         {
           "pagePath": "pages/index/index",
@@ -129,6 +128,7 @@
           "text": "我的"
         }
       ],
+      "backgroundColor": "#FFFFFF",
       "selectedIndex": 0,
       "shown": true,
       "child": [

@@ -7,7 +7,6 @@
 
 <script setup>
 	import { useUserStore } from '@/store/user';
-	import {storeToRefs} from "pinia";
 	const props = defineProps({
 		heartType:{
 			type:String,

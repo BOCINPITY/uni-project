@@ -102,10 +102,10 @@
 			return startsIds.value.includes(id)
 		}
 	}
+	const emits = defineEmits(['saveSearchHistory'])
 	const handleClickCard = async() => {
-		console.log("handleClickCard")
+		emits("saveSearchHistory")
 	}
-
 	const handleStart  = (id) => {
 		userUpdateStarts(id)
 	}

@@ -584,6 +584,21 @@
   margin-left: 0.625rem;
   color: #999;
 }
+.nav-bar .nav-bar-top .nav-bar-content .search-input[data-v-9367190c] {
+  width: 100%;
+  font-size: 14px;
+  text-indent: 1em;
+}
+.nav-bar .return-icon[data-v-9367190c] {
+  position: absolute;
+  height: 1.875rem;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: nowarp;
+  flex-direction: row;
+}
 /**
  * 这里是uni-app内置的常用样式变量
  *

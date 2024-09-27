@@ -17,15 +17,17 @@ const _sfc_main = {
   props: {
     item: Object
   },
-  setup(__props) {
+  emits: ["saveSearchHistory"],
+  setup(__props, { emit: __emit }) {
     const { startsIds, userId } = common_vendor.storeToRefs(store_user.useUserStore());
     const isInUserStarts = (id) => {
       if (startsIds.value) {
         return startsIds.value.includes(id);
       }
     };
+    const emits = __emit;
     const handleClickCard = async () => {
-      console.log("handleClickCard");
+      emits("saveSearchHistory");
     };
     const handleStart = (id) => {
       api_user.userUpdateStarts(id);

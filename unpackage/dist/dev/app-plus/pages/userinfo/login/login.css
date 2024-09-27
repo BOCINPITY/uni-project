@@ -1048,3 +1048,8 @@
   flex-wrap: nowarp;
   flex-direction: column;
 }
+[data-v-47d7a160] .uni-forms-item {
+  margin: 0 15px;
+  margin-right: 90px;
+  padding: 12px;
+}

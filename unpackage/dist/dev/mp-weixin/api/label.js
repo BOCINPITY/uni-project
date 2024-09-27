@@ -1,7 +1,7 @@
 "use strict";
 const common_vendor = require("../common/vendor.js");
 async function getLabelList() {
-  const { result } = await common_vendor.Vs.callFunction({ name: "label_get_list" });
+  const { result } = await common_vendor.Ys.callFunction({ name: "label_get_list" });
   if (result.code === 200) {
     return result.data;
   } else {

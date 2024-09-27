@@ -2,7 +2,7 @@
 	<view class="article-list-container">
 		<scroll-view scroll-y="true" class="article-list-scroll" @scrolltolower="loadMore">
 			<view class="article-list-content">
-				<ListCard :item="item" v-for="(item,index) in aticleList" :key="index"></ListCard>
+				<ListCard @saveSearchHistory="$emit('saveSearchHistory')" :item="item" v-for="(item,index) in aticleList" :key="index"></ListCard>
 				<uni-load-more :status="loadStatus"></uni-load-more>
 			</view>
 		</scroll-view>
@@ -24,7 +24,7 @@
 			default:"no-more"
 		}
 	})
-	const emits = defineEmits(["loadMore"])
+	const emits = defineEmits(["loadMore","saveSearchHistory"])
 	const loadMore = () => {
 		emits("loadMore")
 	}

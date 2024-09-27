@@ -3,7 +3,8 @@ import { defineStore } from 'pinia';
 export const useUserStore = defineStore('user', {
 	unistorage:true,
 	state: () => ({
-		info:null
+		info:null,
+		searchHistoryList:[]
 	}),
 	getters:{
 		startsIds:(state) => (state.info?.article_starts_ids || []),
@@ -12,6 +13,13 @@ export const useUserStore = defineStore('user', {
 	actions:{
 		updateUserInfo(info){
 			this.info = info
+		},
+		updateUserSearchHistoryList(value){
+			if(this.searchHistoryList.includes(value)) return
+			this.searchHistoryList.unshift(value)
+		},
+		clearUserSearchHistoryList(){
+			this.searchHistoryList = []
 		},
 		async isLogin(){
 			return new Promise((resolve,reject) => {

@@ -2,6 +2,7 @@
   "navigationStyle": "custom",
   "usingComponents": {
     "nav-bar": "../../components/NavBar/NavBar",
+    "article-item": "../../components/ArticleItem/ArticleItem",
     "uni-icons": "../../uni_modules/uni-icons/components/uni-icons/uni-icons"
   }
 }

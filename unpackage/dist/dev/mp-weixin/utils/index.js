@@ -12,4 +12,14 @@ function useTopFit() {
     marginRight
   };
 }
+function debounce(func, delay) {
+  let timer = null;
+  return function() {
+    clearTimeout(timer);
+    timer = setTimeout(() => {
+      func.apply(this, arguments);
+    }, delay);
+  };
+}
+exports.debounce = debounce;
 exports.useTopFit = useTopFit;

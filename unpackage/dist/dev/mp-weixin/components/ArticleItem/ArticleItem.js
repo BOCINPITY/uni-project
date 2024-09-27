@@ -17,9 +17,12 @@ const _sfc_main = {
       type: Array,
       default: () => []
     },
-    loadStatus: String
+    loadStatus: {
+      type: String,
+      default: "no-more"
+    }
   },
-  emits: ["loadMore"],
+  emits: ["loadMore", "saveSearchHistory"],
   setup(__props, { emit: __emit }) {
     const emits = __emit;
     const loadMore = () => {
@@ -29,9 +32,10 @@ const _sfc_main = {
       return {
         a: common_vendor.f(__props.aticleList, (item, index, i0) => {
           return {
-            a: index,
-            b: "46d4f33b-0-" + i0,
-            c: common_vendor.p({
+            a: common_vendor.o(($event) => _ctx.$emit("saveSearchHistory"), index),
+            b: index,
+            c: "46d4f33b-0-" + i0,
+            d: common_vendor.p({
               item
             })
           };

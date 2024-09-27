@@ -1,7 +1,5 @@
 'use strict';
 
-const { STATUS_CODES } = require("http");
-
 const db = uniCloud.database()
 exports.main = async (event, context) => {
 	const {text} = event
@@ -11,7 +9,7 @@ exports.main = async (event, context) => {
 	}).end()
 	//返回数据给客户端
 	return {
-		code:STATUS_CODES.SUCCESS,
+		code:200,
 		data:data
 	}
 }; 
