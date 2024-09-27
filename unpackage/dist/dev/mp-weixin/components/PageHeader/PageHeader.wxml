@@ -1,1 +1,0 @@
-<view class="container"><view class="header"><view style="{{'height:' + a}}"></view><view class="header-content"><view class="back-icon"><uni-icons wx:if="{{c}}" bindclick="{{b}}" u-i="e6a25cc0-0" bind:__l="__l" u-p="{{c}}"></uni-icons></view><view class="info">{{d}}</view></view></view></view>
